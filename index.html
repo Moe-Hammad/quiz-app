@@ -1,665 +1,721 @@
 <!doctype html>
 <html lang="de">
-  <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width,initial-scale=1" />
-    <title>Quiz</title>
-    <style>
-      :root {
-        font-family:
-          system-ui,
-          -apple-system,
-          Segoe UI,
-          Roboto,
-          Arial,
-          sans-serif;
-      }
-      body {
-        margin: 0;
-        background: #0b0d12;
-        color: #e9eef7;
-      }
-      .wrap {
-        max-width: 900px;
-        margin: 0 auto;
-        padding: 24px;
-      }
-      .card {
-        background: #121624;
-        border: 1px solid #1f2640;
-        border-radius: 16px;
-        padding: 18px;
-        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
-      }
-      h1 {
-        margin: 0 0 12px;
-        font-size: 20px;
-      }
-      .row {
-        display: flex;
-        gap: 12px;
-        flex-wrap: wrap;
-        align-items: center;
-      }
-      .muted {
-        color: #aab4d6;
-        font-size: 13px;
-      }
-      .progress {
-        height: 10px;
-        background: #0e1220;
-        border: 1px solid #1f2640;
-        border-radius: 999px;
-        overflow: hidden;
-      }
-      .bar {
-        height: 100%;
-        width: 0%;
-        background: #5b8cff;
-      }
-      .q {
-        font-size: 18px;
-        margin: 8px 0 12px;
-        line-height: 1.35;
-      }
-      pre {
-        background: #0e1220;
-        border: 1px solid #1f2640;
-        border-radius: 12px;
-        padding: 12px;
-        overflow: auto;
-      }
-      .opts {
-        display: grid;
-        gap: 10px;
-        margin: 12px 0;
-      }
-      .opt {
-        border: 1px solid #1f2640;
-        background: #0e1220;
-        border-radius: 12px;
-        padding: 12px;
-        cursor: pointer;
-        display: flex;
-        gap: 10px;
-        align-items: flex-start;
-      }
-      .opt:hover {
-        border-color: #3752a6;
-      }
-      .opt input {
-        margin-top: 3px;
-      }
-      .opt.correct {
-        border-color: #2aa775;
-        background: rgba(42, 167, 117, 0.12);
-      }
-      .opt.wrong {
-        border-color: #d55252;
-        background: rgba(213, 82, 82, 0.12);
-      }
-      .btns {
-        display: flex;
-        gap: 10px;
-        flex-wrap: wrap;
-        margin-top: 12px;
-      }
-      button {
-        border: 1px solid #1f2640;
-        background: #151b2f;
-        color: #e9eef7;
-        padding: 10px 14px;
-        border-radius: 12px;
-        cursor: pointer;
-      }
-      button:hover {
-        border-color: #3752a6;
-      }
-      button.primary {
-        background: #2b3c7a;
-        border-color: #3752a6;
-      }
-      button:disabled {
-        opacity: 0.55;
-        cursor: not-allowed;
-      }
-      .pill {
-        font-size: 12px;
-        padding: 5px 10px;
-        border-radius: 999px;
-        border: 1px solid #1f2640;
-        background: #0e1220;
-      }
-      .footer {
-        margin-top: 12px;
-        display: flex;
-        justify-content: space-between;
-        gap: 10px;
-        flex-wrap: wrap;
-      }
-      .explain {
-        margin-top: 10px;
-        color: #cfd6ee;
-        font-size: 14px;
-        line-height: 1.35;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="wrap">
-      <div class="card">
-        <div class="row" style="justify-content: space-between">
-          <h1>Quiz</h1>
-          <div class="row">
-            <span class="pill" id="modePill">Modus: —</span>
-            <span class="pill" id="scorePill">Punkte: 0</span>
-            <span class="pill" id="wrongPill">Fehler: 0</span>
-          </div>
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Quiz</title>
+  <style>
+    :root { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; }
+    body { margin: 0; background: #0b0d12; color: #e9eef7; }
+    .wrap { max-width: 920px; margin: 0 auto; padding: 24px; }
+    .card { background: #121624; border: 1px solid #1f2640; border-radius: 16px; padding: 18px; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+    h1 { margin: 0 0 12px; font-size: 20px; }
+    h2 { margin: 0 0 10px; font-size: 18px; }
+    .row { display: flex; gap: 12px; flex-wrap: wrap; align-items: center; }
+    .muted { color: #aab4d6; font-size: 13px; }
+    .progress { height: 10px; background: #0e1220; border: 1px solid #1f2640; border-radius: 999px; overflow: hidden; }
+    .bar { height: 100%; width: 0%; background: #5b8cff; }
+    .q { font-size: 18px; margin: 8px 0 12px; line-height: 1.35; }
+    pre { background: #0e1220; border: 1px solid #1f2640; border-radius: 12px; padding: 12px; overflow: auto; }
+    .opts { display: grid; gap: 10px; margin: 12px 0; }
+    .opt { border: 1px solid #1f2640; background: #0e1220; border-radius: 12px; padding: 12px; cursor: pointer; display: flex; gap: 10px; align-items: flex-start; }
+    .opt:hover { border-color: #3752a6; }
+    .opt input { margin-top: 3px; }
+    .opt.correct { border-color: #2aa775; background: rgba(42,167,117,.12); }
+    .opt.wrong { border-color: #d55252; background: rgba(213,82,82,.12); }
+    .btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 12px; }
+    button { border: 1px solid #1f2640; background: #151b2f; color: #e9eef7; padding: 10px 14px; border-radius: 12px; cursor: pointer; }
+    button:hover { border-color: #3752a6; }
+    button.primary { background: #2b3c7a; border-color: #3752a6; }
+    button:disabled { opacity: .55; cursor: not-allowed; }
+    .pill { font-size: 12px; padding: 5px 10px; border-radius: 999px; border: 1px solid #1f2640; background: #0e1220; }
+    .footer { margin-top: 12px; display: flex; justify-content: space-between; gap: 10px; flex-wrap: wrap; }
+    .explain { margin-top: 10px; color: #cfd6ee; font-size: 14px; line-height: 1.35; }
+    .grid3 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 12px; }
+    @media (max-width: 860px) { .grid3 { grid-template-columns: 1fr; } }
+    .modeCard { background: #0e1220; border: 1px solid #1f2640; border-radius: 16px; padding: 14px; }
+    .modeCard h3 { margin: 0 0 8px; font-size: 16px; }
+    .modeCard p { margin: 0 0 12px; color: #cfd6ee; font-size: 14px; line-height: 1.35; }
+    .hidden { display: none !important; }
+    ul { margin: 8px 0 0; padding-left: 18px; }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <!-- MODE PICKER -->
+    <div class="card" id="modeScreen">
+      <div class="row" style="justify-content: space-between;">
+        <h1>Quiz</h1>
+        <div class="row">
+          <span class="pill" id="wrongPillTop">Fehler: 0</span>
+          <button id="clearWrongTopBtn">Fehlerliste leeren</button>
+        </div>
+      </div>
+
+      <p class="muted" style="margin: 0 0 14px;">
+        Wähle zuerst einen Modus. Falsch beantwortete Fragen werden immer in der Fehlerliste gespeichert.
+      </p>
+
+      <div class="grid3">
+        <div class="modeCard">
+          <h3>Alle Fragen</h3>
+          <p>Zeigt den gesamten Fragenpool (randomisiert, ohne Wiederholungen).</p>
+          <button class="primary" id="startAllBtn">Start</button>
         </div>
 
-        <div class="progress" aria-label="Fortschritt">
-          <div class="bar" id="bar"></div>
-        </div>
-        <div class="footer">
-          <div class="muted" id="meta">—</div>
-          <div class="muted" id="status">Bereit</div>
+        <div class="modeCard">
+          <h3>Falsche Fragen</h3>
+          <p>Nur Fragen, die du mindestens einmal falsch beantwortet hast (aus allen Modi).</p>
+          <button class="primary" id="startWrongBtn">Start</button>
         </div>
 
-        <div class="q" id="questionText"></div>
-        <pre id="codeBlock" style="display: none"></pre>
-
-        <div class="opts" id="options"></div>
-
-        <div class="btns">
-          <button id="checkBtn" class="primary" disabled>Antwort prüfen</button>
-          <button id="nextBtn" disabled>Nächste Frage</button>
-          <button id="restartBtn">Neu starten</button>
-          <button id="wrongModeBtn">Fehler-Modus</button>
-          <button id="wrongListBtn">Fehlerliste</button>
-          <button id="clearWrongBtn">Fehlerliste leeren</button>
+        <div class="modeCard">
+          <h3>Noch offen</h3>
+          <p>Nur Fragen, die du noch nicht beantwortet hast. Jede beantwortete Frage wird automatisch entfernt.</p>
+          <button class="primary" id="startUnseenBtn">Start</button>
         </div>
 
-        <div class="explain" id="explanation" style="display: none"></div>
-
-        <div id="wrongPanel" style="display:none; margin-top:12px; border-top:1px solid #1f2640; padding-top:12px;">
-          <div class="row" style="justify-content: space-between;">
-            <div class="muted" id="wrongPanelTitle">Fehlerliste (0)</div>
-            <div class="row">
-              <button id="startWrongBtn" class="primary">Nur Fehler üben</button>
-              <button id="closeWrongBtn">Schließen</button>
-            </div>
-          </div>
-          <div class="muted" style="margin:8px 0 6px;">Hier stehen alle Fragen, die du mindestens einmal falsch beantwortet hast.</div>
-          <div id="wrongEmpty" class="muted" style="display:none;">Noch keine Fehler gespeichert ✅</div>
-          <ul id="wrongList" style="margin:8px 0 0; padding-left: 18px;"></ul>
+        <div class="modeCard">
+          <h3>Klausur Modus</h3>
+          <p>30 zufällige Fragen, 40 Minuten Zeit, Ergebnis am Ende.</p>
+          <button class="primary" id="startExamBtn">Start</button>
         </div>
+      </div>
+
+      <div class="explain" style="margin-top: 14px;">
+        <div class="muted">Fehlerliste Vorschau:</div>
+        <div id="wrongPreviewEmpty" class="muted" style="display:none;">Noch keine Fehler gespeichert ✅</div>
+        <ul id="wrongPreview"></ul>
+      </div>
+
+      <div class="explain" style="margin-top: 14px;">
+        <div class="muted">Noch offen Vorschau:</div>
+        <div id="unseenPreviewEmpty" class="muted" style="display:none;">Du hast schon alle Fragen beantwortet ✅</div>
+        <ul id="unseenPreview"></ul>
       </div>
     </div>
 
-    <script>
-      /**
-       * Fragen-Format (wird gleich durch deine Screenshot-Fragen ersetzt):
-       * {
-       *   id: "rust-mpsc-01",
-       *   prompt: "Wofür steht mpsc?",
-       *   code: "optional code block",
-       *   multi: false, // true = multiple choice
-       *   options: [{ id:"a", text:"...", correct:true }, ...],
-       *   explanation: "optional"
-       * }
-       */
-      let QUESTIONS = [];
+    <!-- QUIZ -->
+    <div class="card hidden" id="quizScreen">
+      <div class="row" style="justify-content: space-between;">
+        <h1 id="modeTitle">Quiz</h1>
+        <div class="row">
+          <span class="pill" id="modePill">Modus: —</span>
+          <span class="pill" id="timerPill" style="display:none;">⏱ 40:00</span>
+          <span class="pill" id="scorePill">Punkte: 0</span>
+          <span class="pill" id="wrongPill">Fehler: 0</span>
+        </div>
+      </div>
 
-      // Lädt questions.json und wandelt sie in das Format um,
-      // das dein Quiz-Renderer erwartet.
-      async function loadQuestions() {
-        const res = await fetch("./questions.json");
-        if (!res.ok) {
-          throw new Error(
-            "questions.json konnte nicht geladen werden (Status " +
-              res.status +
-              ")",
-          );
-        }
-        const raw = await res.json();
+      <div class="progress" aria-label="Fortschritt">
+        <div class="bar" id="bar"></div>
+      </div>
+      <div class="footer">
+        <div class="muted" id="meta">—</div>
+        <div class="muted" id="status">Bereit</div>
+      </div>
 
-        // Unterstützt ZWEI Formate:
-        // 1) Dein Renderer-Format: {prompt, multi, options:[{id,text,correct}], ...}
-        // 2) Mein JSON-Export-Format: {question, options:[string], correctIndex, topic}
-        QUESTIONS = raw.map((q, idx) => {
-          // Fall 1: Schon im richtigen Format
-          if (
-            q.prompt &&
-            Array.isArray(q.options) &&
-            typeof q.options[0] === "object"
-          ) {
-            return q;
-          }
+      <div class="q" id="questionText"></div>
+      <pre id="codeBlock" style="display:none;"></pre>
 
-          // Fall 2: correctIndex-Format
-          const letters = "abcdefghijklmnopqrstuvwxyz";
-          const options = (q.options || []).map((text, i) => ({
-            id: letters[i] || String(i),
-            text,
-            correct: i === q.correctIndex,
-          }));
+      <div class="opts" id="options"></div>
 
-          return {
-            id: q.id || `q-${idx + 1}`,
-            prompt: q.question || q.prompt || "Frage fehlt",
-            multi: false, // Screenshots waren Single-Choice
-            options,
-            explanation: q.topic ? `Thema: ${q.topic}` : "",
-          };
-        });
-      }
+      <div class="btns">
+        <button id="checkBtn" class="primary" disabled>Antwort prüfen</button>
+        <button id="nextBtn" disabled>Nächste Frage</button>
+        <button id="finishBtn" style="display:none;">Klausur beenden</button>
+        <button id="backToModesBtn">Zurück zur Moduswahl</button>
+      </div>
 
-      // --- Persistenter Zustand (localStorage) ---
-// Ziel: Nach Reload soll NICHTS verloren gehen (Fehlerliste + Modus).
-// Hinweis: localStorage ist pro Origin (Domain+Port) getrennt.
+      <div class="explain" id="explanation" style="display:none;"></div>
+    </div>
 
-const STATE_KEY = "quiz_state_v1";
+    <!-- RESULT -->
+    <div class="card hidden" id="resultScreen">
+      <div class="row" style="justify-content: space-between;">
+        <h1>Ergebnis</h1>
+        <div class="row">
+          <span class="pill" id="resultModePill">—</span>
+          <span class="pill" id="resultWrongPill">Fehler: 0</span>
+        </div>
+      </div>
 
-function nowIso() {
-  return new Date().toISOString();
-}
+      <div class="explain" id="resultText"></div>
 
-function defaultState() {
-  return {
-    version: 1,
-    createdAt: nowIso(),
-    updatedAt: nowIso(),
-    mode: "all",        // "all" | "wrong"
-    wrongIds: []        // Array von question.id
-  };
-}
+      <div class="btns">
+        <button class="primary" id="resultBackBtn">Zurück zur Moduswahl</button>
+        <button id="resultRetryWrongBtn">Nur Fehler üben</button>
+        <button id="resultClearWrongBtn">Fehlerliste leeren</button>
+      </div>
 
-function loadState() {
-  try {
-    const raw = localStorage.getItem(STATE_KEY);
-    if (!raw) {
-      const s = defaultState();
-      localStorage.setItem(STATE_KEY, JSON.stringify(s));
-      return s;
-    }
-    const s = JSON.parse(raw);
-    // Auto-Reparatur / Auto-Init falls irgendwas fehlt
-    const base = defaultState();
-    const merged = {
-      ...base,
-      ...s,
-      wrongIds: Array.isArray(s?.wrongIds) ? s.wrongIds.filter(x => typeof x === "string") : [],
-      mode: (s?.mode === "wrong" || s?.mode === "all") ? s.mode : "all",
-    };
-    // Falls Struktur geändert/kaputt war: wieder speichern
-    localStorage.setItem(STATE_KEY, JSON.stringify({ ...merged, updatedAt: nowIso() }));
-    return merged;
-  } catch (e) {
-    // Wenn JSON kaputt ist: reset auf default (damit App wieder läuft)
-    const s = defaultState();
-    try { localStorage.setItem(STATE_KEY, JSON.stringify(s)); } catch {}
-    return s;
-  }
-}
+      <div class="explain" style="margin-top: 12px;">
+        <div class="muted">In der Klausur falsch beantwortet:</div>
+        <div id="examWrongEmpty" class="muted" style="display:none;">Keine 🎉</div>
+        <ul id="examWrongList"></ul>
+      </div>
+    </div>
+  </div>
 
-function saveState(state) {
-  try {
-    state.updatedAt = nowIso();
-    localStorage.setItem(STATE_KEY, JSON.stringify(state));
-  } catch {
-    // Wenn Storage blockiert ist (Inkognito/Restriktionen), kann man nichts speichern.
-  }
-}
+<script>
+  // --------------------------
+  // Load questions.json
+  // --------------------------
+  let QUESTIONS = [];
 
-let state = loadState();
+  async function loadQuestions() {
+    const res = await fetch("./questions.json");
+    if (!res.ok) throw new Error("questions.json konnte nicht geladen werden (Status " + res.status + ")");
+    const raw = await res.json();
 
-// --- Fehlerliste + Modus (aus state, persistiert im Browser) ---
-let wrongSet = new Set(state.wrongIds);  // enthält question.id
-let quizMode = state.mode;              // "all" | "wrong"
+    // Unterstützt 2 Formate:
+    // A) Renderer-Format: {prompt, multi, options:[{id,text,correct}], ...}
+    // B) correctIndex-Format: {question, options:[string], correctIndex, topic}
+    QUESTIONS = raw.map((q, idx) => {
+      if (q.prompt && Array.isArray(q.options) && typeof q.options[0] === "object") return q;
 
-function syncState() {
-  state.mode = quizMode;
-  state.wrongIds = [...wrongSet];
-  saveState(state);
-}
+      const letters = "abcdefghijklmnopqrstuvwxyz";
+      const options = (q.options || []).map((text, i) => ({
+        id: letters[i] || String(i),
+        text,
+        correct: i === q.correctIndex,
+      }));
 
-function addWrong(id) {
-  if (!id) return;
-  wrongSet.add(id);
-  syncState();
-  updateWrongPill();
-  renderWrongPanel();
-}
-
-function removeWrong(id) {
-  if (!id) return;
-  if (wrongSet.delete(id)) {
-    syncState();
-    updateWrongPill();
-    renderWrongPanel();
-  }
-}
-
-function updateWrongPill() {
-  el.wrongPill.textContent = `Fehler: ${wrongSet.size}`;
-}
-
-function setMode(mode) {
-  quizMode = mode;
-  syncState();          // Modus speichern
-  resetPool();          // baut Pool je nach Modus neu
-  render();
-  el.status.textContent = (quizMode === "wrong")
-    ? "Fehler-Modus aktiv"
-    : "Normal-Modus aktiv";
-}
-
-function renderWrongPanel() {
-  if (!el.wrongPanel) return;
-  const ids = [...wrongSet];
-  el.wrongPanelTitle.textContent = `Fehlerliste (${ids.length})`;
-  el.wrongList.innerHTML = "";
-
-  // Map für schnellen Zugriff
-  const byId = new Map(QUESTIONS.map(q => [q.id, q]));
-  const items = ids
-    .map(id => byId.get(id))
-    .filter(Boolean);
-
-  if (items.length === 0) {
-    el.wrongEmpty.style.display = "";
-    return;
-  }
-  el.wrongEmpty.style.display = "none";
-
-  items.forEach(q => {
-    const li = document.createElement("li");
-    li.style.margin = "6px 0";
-    const topic = q.explanation && q.explanation.startsWith("Thema:")
-      ? q.explanation.replace("Thema:", "").trim()
-      : "";
-    li.textContent = topic ? `[${topic}] ${q.prompt}` : q.prompt;
-    el.wrongList.appendChild(li);
-  });
-}
-
-function toggleWrongPanel(show) {
-  el.wrongPanel.style.display = show ? "" : "none";
-  if (show) renderWrongPanel();
-}
-
-// --- Quiz Engine (keine Wiederholungen bis Pool leer) ---
-
-      let pool = [];
-      let index = 0;
-      let score = 0;
-      let answered = false;
-
-      const el = {
-        bar: document.getElementById("bar"),
-        meta: document.getElementById("meta"),
-        status: document.getElementById("status"),
-        modePill: document.getElementById("modePill"),
-        scorePill: document.getElementById("scorePill"),
-        wrongPill: document.getElementById("wrongPill"),
-        qText: document.getElementById("questionText"),
-        code: document.getElementById("codeBlock"),
-        opts: document.getElementById("options"),
-        check: document.getElementById("checkBtn"),
-        next: document.getElementById("nextBtn"),
-        restart: document.getElementById("restartBtn"),
-        wrongModeBtn: document.getElementById("wrongModeBtn"),
-        wrongListBtn: document.getElementById("wrongListBtn"),
-        clearWrongBtn: document.getElementById("clearWrongBtn"),
-        wrongPanel: document.getElementById("wrongPanel"),
-        wrongPanelTitle: document.getElementById("wrongPanelTitle"),
-        wrongList: document.getElementById("wrongList"),
-        wrongEmpty: document.getElementById("wrongEmpty"),
-        startWrongBtn: document.getElementById("startWrongBtn"),
-        closeWrongBtn: document.getElementById("closeWrongBtn"),
-        explanation: document.getElementById("explanation"),
+      return {
+        id: q.id || `q-${idx + 1}`,
+        prompt: q.question || q.prompt || "Frage fehlt",
+        code: q.code || "",
+        multi: !!q.multi,
+        options,
+        explanation: q.topic ? `Thema: ${q.topic}` : "",
       };
+    });
+  }
 
-      function shuffle(arr) {
-        for (let i = arr.length - 1; i > 0; i--) {
-          const j = Math.floor(Math.random() * (i + 1));
-          [arr[i], arr[j]] = [arr[j], arr[i]];
-        }
-        return arr;
-      }
+  // --------------------------
+  // Persistent wrong list
+  // --------------------------
+  const WRONG_KEY = "quiz_wrong_ids_v1";
+  function loadWrongSet() {
+    try {
+      const raw = localStorage.getItem(WRONG_KEY);
+      if (!raw) return new Set();
+      const arr = JSON.parse(raw);
+      if (!Array.isArray(arr)) return new Set();
+      return new Set(arr.filter(x => typeof x === "string"));
+    } catch {
+      return new Set();
+    }
+  }
+  function saveWrongSet() {
+    try { localStorage.setItem(WRONG_KEY, JSON.stringify([...wrongSet])); } catch {}
+  }
+  let wrongSet = loadWrongSet();
+  function addWrong(id) {
+    if (!id) return;
+    wrongSet.add(id);
+    saveWrongSet();
+    updateWrongPills();
+  }
+  function clearWrong() {
+    wrongSet = new Set();
+    saveWrongSet();
+    updateWrongPills();
+    renderWrongPreview();
+  }
 
-      function resetPool() {
-        const base = (quizMode === "wrong")
-          ? QUESTIONS.filter(q => wrongSet.has(q.id))
-          : QUESTIONS;
-        pool = shuffle([...base]).map((q) => ({
-          ...q,
-          options: shuffle([...q.options]),
-        }));
-        index = 0;
-        score = 0;
-        answered = false;
-        el.scorePill.textContent = `Punkte: ${score}`;
-        updateWrongPill();
-        el.status.textContent = "Bereit";
-      }
+  
+  // --------------------------
+  // Persistenter Stand: beantwortete Fragen (für "Noch offen")
+  // --------------------------
+  const ATTEMPTED_KEY = "quiz_attempted_ids_v1";
 
-      function current() {
-        return pool[index];
-      }
+  function loadAttemptedSet() {
+    try {
+      const raw = localStorage.getItem(ATTEMPTED_KEY);
+      if (!raw) return new Set();
+      const arr = JSON.parse(raw);
+      if (!Array.isArray(arr)) return new Set();
+      return new Set(arr.filter(x => typeof x === "string"));
+    } catch {
+      return new Set();
+    }
+  }
 
-      function render() {
-        const q = current();
-        if (!q) {
-          el.qText.textContent = "Fertig ✅ Keine Fragen mehr im Pool.";
-          el.code.style.display = "none";
-          el.opts.innerHTML = "";
-          el.check.disabled = true;
-          el.next.disabled = true;
-          el.explanation.style.display = "none";
-          el.meta.textContent = `Gesamt: ${pool.length} | Beantwortet: ${pool.length}`;
-          el.bar.style.width = "100%";
-          el.modePill.textContent = "Modus: —";
-          el.status.textContent = `Ende | Punkte: ${score}`;
-          return;
-        }
+  function saveAttemptedSet() {
+    try { localStorage.setItem(ATTEMPTED_KEY, JSON.stringify([...attemptedSet])); } catch {}
+  }
 
-        answered = false;
-        el.explanation.style.display = "none";
-        el.explanation.textContent = "";
+  let attemptedSet = loadAttemptedSet();
+
+  function markAttempted(id) {
+    if (!id) return;
+    if (!attemptedSet.has(id)) {
+      attemptedSet.add(id);
+      saveAttemptedSet();
+    }
+  }
+
+  function clearAttempted() {
+    attemptedSet = new Set();
+    saveAttemptedSet();
+    renderUnseenPreview();
+  }
+
+// --------------------------
+  // UI elements
+  // --------------------------
+  const el = {
+    modeScreen: document.getElementById("modeScreen"),
+    quizScreen: document.getElementById("quizScreen"),
+    resultScreen: document.getElementById("resultScreen"),
+
+    startAllBtn: document.getElementById("startAllBtn"),
+    startWrongBtn: document.getElementById("startWrongBtn"),
+    startExamBtn: document.getElementById("startExamBtn"),
+    startUnseenBtn: document.getElementById("startUnseenBtn"),
+    wrongPillTop: document.getElementById("wrongPillTop"),
+    clearWrongTopBtn: document.getElementById("clearWrongTopBtn"),
+    wrongPreview: document.getElementById("wrongPreview"),
+    wrongPreviewEmpty: document.getElementById("wrongPreviewEmpty"),
+    unseenPreview: document.getElementById("unseenPreview"),
+    unseenPreviewEmpty: document.getElementById("unseenPreviewEmpty"),
+
+    modeTitle: document.getElementById("modeTitle"),
+    modePill: document.getElementById("modePill"),
+    timerPill: document.getElementById("timerPill"),
+    scorePill: document.getElementById("scorePill"),
+    wrongPill: document.getElementById("wrongPill"),
+    bar: document.getElementById("bar"),
+    meta: document.getElementById("meta"),
+    status: document.getElementById("status"),
+    qText: document.getElementById("questionText"),
+    code: document.getElementById("codeBlock"),
+    opts: document.getElementById("options"),
+    check: document.getElementById("checkBtn"),
+    next: document.getElementById("nextBtn"),
+    finish: document.getElementById("finishBtn"),
+    backToModes: document.getElementById("backToModesBtn"),
+    explanation: document.getElementById("explanation"),
+
+    resultModePill: document.getElementById("resultModePill"),
+    resultWrongPill: document.getElementById("resultWrongPill"),
+    resultText: document.getElementById("resultText"),
+    resultBackBtn: document.getElementById("resultBackBtn"),
+    resultRetryWrongBtn: document.getElementById("resultRetryWrongBtn"),
+    resultClearWrongBtn: document.getElementById("resultClearWrongBtn"),
+    examWrongList: document.getElementById("examWrongList"),
+    examWrongEmpty: document.getElementById("examWrongEmpty"),
+  };
+
+  function updateWrongPills() {
+    el.wrongPillTop.textContent = `Fehler: ${wrongSet.size}`;
+    el.wrongPill.textContent = `Fehler: ${wrongSet.size}`;
+    el.resultWrongPill.textContent = `Fehler: ${wrongSet.size}`;
+  }
+
+  function renderWrongPreview() {
+    const byId = new Map(QUESTIONS.map(q => [q.id, q]));
+    const items = [...wrongSet].map(id => byId.get(id)).filter(Boolean);
+
+    el.wrongPreview.innerHTML = "";
+    if (items.length === 0) {
+      el.wrongPreviewEmpty.style.display = "";
+      return;
+    }
+    el.wrongPreviewEmpty.style.display = "none";
+
+    items.slice(0, 8).forEach(q => {
+      const li = document.createElement("li");
+      li.textContent = q.prompt;
+      el.wrongPreview.appendChild(li);
+    });
+
+    if (items.length > 8) {
+      const li = document.createElement("li");
+      li.className = "muted";
+      li.textContent = `… und ${items.length - 8} weitere`;
+      el.wrongPreview.appendChild(li);
+    }
+  }
+  function renderUnseenPreview() {
+    const unseen = QUESTIONS.filter(q => !attemptedSet.has(q.id));
+    el.unseenPreview.innerHTML = "";
+
+    if (unseen.length === 0) {
+      el.unseenPreviewEmpty.style.display = "";
+      return;
+    }
+    el.unseenPreviewEmpty.style.display = "none";
+
+    unseen.slice(0, 8).forEach(q => {
+      const li = document.createElement("li");
+      li.textContent = q.prompt;
+      el.unseenPreview.appendChild(li);
+    });
+
+    if (unseen.length > 8) {
+      const li = document.createElement("li");
+      li.className = "muted";
+      li.textContent = `… und ${unseen.length - 8} weitere`;
+      el.unseenPreview.appendChild(li);
+    }
+  }
+
+
+  // --------------------------
+  // Quiz engine (all / wrong / exam)
+  // --------------------------
+  let mode = "all"; // "all" | "wrong" | "unseen" | "exam"
+  let pool = [];
+  let index = 0;
+  let score = 0;
+  let answered = false;
+
+  // Exam-only
+  let examEndsAt = null;
+  let timerHandle = null;
+  let examWrongIds = new Set();
+
+  function shuffle(arr) {
+    for (let i = arr.length - 1; i > 0; i--) {
+      const j = Math.floor(Math.random() * (i + 1));
+      [arr[i], arr[j]] = [arr[j], arr[i]];
+    }
+    return arr;
+  }
+
+  function pickBaseQuestions() {
+    if (mode === "all") return QUESTIONS;
+    if (mode === "wrong") return QUESTIONS.filter(q => wrongSet.has(q.id));
+    if (mode === "unseen") return QUESTIONS.filter(q => !attemptedSet.has(q.id));
+    return QUESTIONS; // exam
+  }
+
+  function buildPool() {
+    const base = pickBaseQuestions();
+    if ((mode === "wrong" || mode === "unseen") && base.length === 0) return [];
+
+    if (mode === "exam") {
+      const shuffled = shuffle([...base]);
+      const n = Math.min(30, shuffled.length);
+      return shuffled.slice(0, n).map(q => ({ ...q, options: shuffle([...q.options]) }));
+    }
+
+    return shuffle([...base]).map(q => ({ ...q, options: shuffle([...q.options]) }));
+  }
+
+  function startMode(selectedMode) {
+    stopTimer();
+    mode = selectedMode;
+
+    pool = buildPool();
+    index = 0;
+    score = 0;
+    answered = false;
+    examWrongIds = new Set();
+
+    el.modeScreen.classList.add("hidden");
+    el.resultScreen.classList.add("hidden");
+    el.quizScreen.classList.remove("hidden");
+
+    el.scorePill.textContent = `Punkte: ${score}`;
+    updateWrongPills();
+
+    if (mode === "all") {
+      el.modeTitle.textContent = "Alle Fragen";
+      el.modePill.textContent = "Modus: Alle Fragen";
+      el.timerPill.style.display = "none";
+      el.finish.style.display = "none";
+    } else if (mode === "wrong") {
+      el.modeTitle.textContent = "Falsche Fragen";
+      el.modePill.textContent = "Modus: Falsche Fragen";
+      el.timerPill.style.display = "none";
+      el.finish.style.display = "none";
+    } else if (mode === "unseen") {
+      el.modeTitle.textContent = "Noch offen";
+      el.modePill.textContent = "Modus: Noch offen";
+      el.timerPill.style.display = "none";
+      el.finish.style.display = "none";
+    } else {
+      el.modeTitle.textContent = "Klausur Modus";
+      el.modePill.textContent = "Modus: Klausur";
+      el.timerPill.style.display = "";
+      el.finish.style.display = "";
+      startTimer(40 * 60);
+    }
+
+    render();
+  }
+
+  function backToModes() {
+    stopTimer();
+    el.quizScreen.classList.add("hidden");
+    el.resultScreen.classList.add("hidden");
+    el.modeScreen.classList.remove("hidden");
+    renderWrongPreview();
+    updateWrongPills();
+  }
+
+  function current() {
+    return pool[index];
+  }
+
+  function render() {
+    const q = current();
+    if (!q) {
+      if (mode === "wrong") {
+        el.qText.textContent = "Keine Fehlerfragen gespeichert ✅";
+        el.code.style.display = "none";
+        el.opts.innerHTML = "";
         el.check.disabled = true;
         el.next.disabled = true;
+        el.explanation.style.display = "none";
+        el.meta.textContent = `Gesamt: 0 | Beantwortet: 0`;
+        el.bar.style.width = "0%";
+        el.status.textContent = "Wechsle Modus oder mache zuerst Fehler in 'Alle Fragen'.";
+        return;
+      }
 
-        el.qText.textContent = q.prompt;
-
-        if (q.code && q.code.trim().length) {
-          el.code.style.display = "";
-          el.code.textContent = q.code;
-        } else {
-          el.code.style.display = "none";
-          el.code.textContent = "";
-        }
-
-        el.modePill.textContent = `Modus: ${q.multi ? "Multiple Choice" : "Single Choice"}`;
-
+      if (mode === "unseen") {
+        el.qText.textContent = "Du hast schon alle Fragen beantwortet ✅";
+        el.code.style.display = "none";
         el.opts.innerHTML = "";
-        const inputType = q.multi ? "checkbox" : "radio";
-
-        q.options.forEach((opt, i) => {
-          const row = document.createElement("label");
-          row.className = "opt";
-          row.dataset.optId = opt.id;
-
-          const inp = document.createElement("input");
-          inp.type = inputType;
-          inp.name = "answer";
-          inp.value = opt.id;
-
-          const txt = document.createElement("div");
-          txt.textContent = opt.text;
-
-          inp.addEventListener("change", () => {
-            if (answered) return;
-            el.check.disabled = !hasSelection();
-          });
-
-          row.appendChild(inp);
-          row.appendChild(txt);
-          el.opts.appendChild(row);
-        });
-
-        const done = index;
-        const total = pool.length;
-        el.meta.textContent = `Gesamt: ${total} | Beantwortet: ${done}`;
-        el.bar.style.width = `${Math.round((done / total) * 100)}%`;
-        el.status.textContent = "Wähle eine Antwort";
-      }
-
-      function hasSelection() {
-        const inputs = [...el.opts.querySelectorAll("input")];
-        return inputs.some((i) => i.checked);
-      }
-
-      function getSelection() {
-        const inputs = [...el.opts.querySelectorAll("input")];
-        return inputs.filter((i) => i.checked).map((i) => i.value);
-      }
-
-      function checkAnswer() {
-        if (answered) return;
-        const q = current();
-        const sel = new Set(getSelection());
-
-        const correctIds = new Set(
-          q.options.filter((o) => o.correct).map((o) => o.id),
-        );
-
-        // Evaluate
-        let isCorrect = false;
-        if (!q.multi) {
-          isCorrect = sel.size === 1 && correctIds.has([...sel][0]);
-        } else {
-          // exact match for multi
-          isCorrect =
-            sel.size === correctIds.size &&
-            [...sel].every((id) => correctIds.has(id));
-        }
-
-        // Paint options
-        [...el.opts.children].forEach((node) => {
-          const optId = node.dataset.optId;
-          if (correctIds.has(optId)) node.classList.add("correct");
-          if (sel.has(optId) && !correctIds.has(optId))
-            node.classList.add("wrong");
-          // lock inputs
-          const input = node.querySelector("input");
-          input.disabled = true;
-        });
-
-        if (isCorrect) {
-          score += 1;
-          el.status.textContent = "Richtig ✅";
-          // Optional: Im Fehler-Modus entferne die Frage aus der Fehlerliste, sobald sie richtig beantwortet wurde
-          if (quizMode === "wrong") {
-            removeWrong(q.id);
-          }
-        } else {
-          el.status.textContent = "Falsch ❌";
-          addWrong(q.id);
-        }
-        el.scorePill.textContent = `Punkte: ${score}`;
-        updateWrongPill();
-
-        if (q.explanation && q.explanation.trim().length) {
-          el.explanation.style.display = "";
-          el.explanation.textContent = q.explanation;
-        }
-
-        answered = true;
         el.check.disabled = true;
-        el.next.disabled = false;
+        el.next.disabled = true;
+        el.explanation.style.display = "none";
+        el.meta.textContent = `Gesamt: 0 | Beantwortet: 0`;
+        el.bar.style.width = "0%";
+        el.status.textContent = "Super! In 'Alle Fragen' oder 'Klausur' kannst du weiter üben.";
+        return;
       }
 
-      function nextQuestion() {
-        index += 1;
-        render();
+      if (mode === "exam") {
+        finishExam("Klausur beendet");
+        return;
       }
 
-      el.check.addEventListener("click", checkAnswer);
-      el.next.addEventListener("click", nextQuestion);
-      el.restart.addEventListener("click", () => {
-        resetPool();
-          el.wrongModeBtn.textContent = (quizMode === "wrong") ? "Normal-Modus" : "Fehler-Modus";
-          render();
+      el.qText.textContent = "Fertig ✅ Keine Fragen mehr im Pool.";
+      el.code.style.display = "none";
+      el.opts.innerHTML = "";
+      el.check.disabled = true;
+      el.next.disabled = true;
+      el.explanation.style.display = "none";
+      el.meta.textContent = `Gesamt: ${pool.length} | Beantwortet: ${pool.length}`;
+      el.bar.style.width = "100%";
+      el.status.textContent = `Ende | Punkte: ${score}`;
+      return;
+    }
+
+    answered = false;
+    el.explanation.style.display = "none";
+    el.explanation.textContent = "";
+    el.check.disabled = true;
+    el.next.disabled = true;
+
+    el.qText.textContent = q.prompt;
+
+    if (q.code && q.code.trim().length) {
+      el.code.style.display = "";
+      el.code.textContent = q.code;
+    } else {
+      el.code.style.display = "none";
+      el.code.textContent = "";
+    }
+
+    el.opts.innerHTML = "";
+    const inputType = q.multi ? "checkbox" : "radio";
+
+    q.options.forEach(opt => {
+      const row = document.createElement("label");
+      row.className = "opt";
+      row.dataset.optId = opt.id;
+
+      const inp = document.createElement("input");
+      inp.type = inputType;
+      inp.name = "answer";
+      inp.value = opt.id;
+
+      const txt = document.createElement("div");
+      txt.textContent = opt.text;
+
+      inp.addEventListener("change", () => {
+        if (answered) return;
+        el.check.disabled = !hasSelection();
       });
 
-      // --- Fehler-Modus / Liste ---
-      el.wrongModeBtn.addEventListener("click", () => {
-        if (quizMode === "wrong") {
-          setMode("all");
-          el.wrongModeBtn.textContent = "Fehler-Modus";
-        } else {
-          if (wrongSet.size === 0) {
-            el.status.textContent = "Keine Fehler gespeichert ✅";
-            toggleWrongPanel(true);
-            return;
-          }
-          setMode("wrong");
-          el.wrongModeBtn.textContent = "Normal-Modus";
-        }
-      });
+      row.appendChild(inp);
+      row.appendChild(txt);
+      el.opts.appendChild(row);
+    });
 
-      el.wrongListBtn.addEventListener("click", () => {
-        const isHidden = el.wrongPanel.style.display === "none" || el.wrongPanel.style.display === "";
-        toggleWrongPanel(isHidden);
-      });
+    const done = index;
+    const total = pool.length;
+    el.meta.textContent = `Gesamt: ${total} | Beantwortet: ${done}`;
+    el.bar.style.width = `${Math.round((done / Math.max(1,total)) * 100)}%`;
+    el.status.textContent = "Wähle eine Antwort";
+  }
 
-      el.closeWrongBtn.addEventListener("click", () => toggleWrongPanel(false));
+  function hasSelection() {
+    const inputs = [...el.opts.querySelectorAll("input")];
+    return inputs.some(i => i.checked);
+  }
 
-      el.startWrongBtn.addEventListener("click", () => {
-        if (wrongSet.size === 0) {
-          el.status.textContent = "Keine Fehler gespeichert ✅";
-          return;
-        }
-        setMode("wrong");
-        el.wrongModeBtn.textContent = "Normal-Modus";
-        toggleWrongPanel(false);
-      });
+  function getSelection() {
+    const inputs = [...el.opts.querySelectorAll("input")];
+    return inputs.filter(i => i.checked).map(i => i.value);
+  }
 
-      el.clearWrongBtn.addEventListener("click", () => {
-        wrongSet = new Set();
-        syncState();
-        updateWrongPill();
-        renderWrongPanel();
-        if (quizMode === "wrong") {
-          setMode("all");
-          el.wrongModeBtn.textContent = "Fehler-Modus";
-        }
-        el.status.textContent = "Fehlerliste geleert";
-      });
+  function checkAnswer() {
+    if (answered) return;
+    const q = current();
+    const sel = new Set(getSelection());
 
-      async function init() {
-        el.status.textContent = "Lade Fragen...";
-        try {
-          await loadQuestions();
-          updateWrongPill();
-          renderWrongPanel();
-          resetPool();
-          render();
-        } catch (err) {
-          console.error(err);
-          el.qText.textContent =
-            "Fehler beim Laden der Fragen. Prüfe questions.json.";
-          el.meta.textContent = "Gesamt: 0 | Beantwortet: 0";
-          el.bar.style.width = "0%";
-          el.check.disabled = true;
-          el.next.disabled = true;
-          el.explanation.style.display = "none";
-          el.status.textContent = "Fehler";
-        }
+    const correctIds = new Set(q.options.filter(o => o.correct).map(o => o.id));
+
+    let isCorrect = false;
+    if (!q.multi) {
+      isCorrect = sel.size === 1 && correctIds.has([...sel][0]);
+    } else {
+      isCorrect = sel.size === correctIds.size && [...sel].every(id => correctIds.has(id));
+    }
+
+    [...el.opts.children].forEach(node => {
+      const optId = node.dataset.optId;
+      if (correctIds.has(optId)) node.classList.add("correct");
+      if (sel.has(optId) && !correctIds.has(optId)) node.classList.add("wrong");
+      node.querySelector("input").disabled = true;
+    });
+
+    if (isCorrect) {
+      score += 1;
+      el.status.textContent = "Richtig ✅";
+    } else {
+      el.status.textContent = "Falsch ❌";
+      addWrong(q.id);
+      if (mode === "exam") examWrongIds.add(q.id);
+    }
+
+    el.scorePill.textContent = `Punkte: ${score}`;
+    updateWrongPills();
+
+    if (q.explanation && q.explanation.trim().length) {
+      el.explanation.style.display = "";
+      el.explanation.textContent = q.explanation;
+    }
+
+    answered = true;
+    el.check.disabled = true;
+    el.next.disabled = false;
+  }
+
+  function nextQuestion() {
+    index += 1;
+    render();
+  }
+
+  // --------------------------
+  // Exam timer + results
+  // --------------------------
+  function fmtTime(sec) {
+    const m = Math.floor(sec / 60);
+    const s = sec % 60;
+    return String(m).padStart(2, "0") + ":" + String(s).padStart(2, "0");
+  }
+
+  function startTimer(seconds) {
+    examEndsAt = Date.now() + seconds * 1000;
+    el.timerPill.textContent = "⏱ " + fmtTime(seconds);
+
+    timerHandle = setInterval(() => {
+      const left = Math.max(0, Math.ceil((examEndsAt - Date.now()) / 1000));
+      el.timerPill.textContent = "⏱ " + fmtTime(left);
+      if (left <= 0) {
+        finishExam("Zeit abgelaufen");
       }
+    }, 250);
+  }
 
-      init();
-    </script>
-  </body>
+  function stopTimer() {
+    if (timerHandle) clearInterval(timerHandle);
+    timerHandle = null;
+    examEndsAt = null;
+    el.timerPill.style.display = "none";
+  }
+
+  function finishExam(reason) {
+    stopTimer();
+
+    el.quizScreen.classList.add("hidden");
+    el.resultScreen.classList.remove("hidden");
+
+    el.resultModePill.textContent = "Klausur Modus";
+    updateWrongPills();
+
+    const total = pool.length;
+    const pct = total ? Math.round((score / total) * 100) : 0;
+
+    el.resultText.innerHTML = `
+      <div><strong>${reason}</strong></div>
+      <div style="margin-top:8px;">Punkte: <strong>${score}</strong> / ${total} (${pct}%)</div>
+      <div class="muted" style="margin-top:8px;">Alle falschen Antworten wurden zusätzlich in der globalen Fehlerliste gespeichert.</div>
+    `;
+
+    el.examWrongList.innerHTML = "";
+    const byId = new Map(QUESTIONS.map(q => [q.id, q]));
+    const items = [...examWrongIds].map(id => byId.get(id)).filter(Boolean);
+
+    if (items.length === 0) {
+      el.examWrongEmpty.style.display = "";
+    } else {
+      el.examWrongEmpty.style.display = "none";
+      items.forEach(q => {
+        const li = document.createElement("li");
+        li.textContent = q.prompt;
+        el.examWrongList.appendChild(li);
+      });
+    }
+  }
+
+  // --------------------------
+  // Wiring
+  // --------------------------
+  el.startAllBtn.addEventListener("click", () => startMode("all"));
+  el.startWrongBtn.addEventListener("click", () => startMode("wrong"));
+  el.startExamBtn.addEventListener("click", () => startMode("exam"));
+  el.startUnseenBtn.addEventListener("click", () => startMode("unseen"));
+
+  el.clearWrongTopBtn.addEventListener("click", () => clearWrong());
+
+  el.check.addEventListener("click", checkAnswer);
+  el.next.addEventListener("click", nextQuestion);
+  el.finish.addEventListener("click", () => finishExam("Klausur beendet"));
+
+  el.backToModes.addEventListener("click", backToModes);
+
+  el.resultBackBtn.addEventListener("click", backToModes);
+  el.resultRetryWrongBtn.addEventListener("click", () => startMode("wrong"));
+  el.resultClearWrongBtn.addEventListener("click", () => clearWrong());
+
+  // --------------------------
+  // Init
+  // --------------------------
+  async function init() {
+    try {
+      await loadQuestions();
+      updateWrongPills();
+      renderWrongPreview();
+      renderUnseenPreview();
+    } catch (e) {
+      console.error(e);
+      el.modeScreen.innerHTML = `
+        <h1>Fehler</h1>
+        <p class="muted">questions.json konnte nicht geladen werden. Stelle sicher, dass index.html und questions.json im selben Ordner liegen (GitHub Pages / Live Server).</p>
+        <pre>${String(e.message || e)}</pre>
+      `;
+    }
+  }
+
+  init();
+</script>
+</body>
 </html>

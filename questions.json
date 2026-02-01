@@ -1,0 +1,902 @@
+[
+  {
+    "id": "su1_q1",
+    "topic": "SU1 Stakeholder/Systemkontext",
+    "question": "Warum ist es sinnvoll, eine Liste von Stakeholdern anzulegen?",
+    "options": [
+      "Wird von der Qualitätsmanagement-Norm ISO 9001 gefordert.",
+      "Damit die Stakeholder sehen, wer außer ihnen selbst noch Einfluss nimmt.",
+      "Erleichtert es dem Team, bei Fragen die richtigen Personen auszuwählen und zu kontaktieren."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "su1_q2",
+    "topic": "SU1 Stakeholder/Systemkontext",
+    "question": "Welche der folgenden Entitäten kann man an einem Systemkontextdiagramm besonders gut ablesen?",
+    "options": [
+      "Die Komponenten, aus denen das System aufgebaut ist.",
+      "Die notwendigen Schnittstellen, die das System nach außen haben soll.",
+      "Die Liste aller Funktionen des Systems.",
+      "Die genauen Eigenschaften der Benutzer des Systems."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "su1_q3",
+    "topic": "SU1 Stakeholder/Systemkontext",
+    "question": "Welche der folgenden Aussagen beschreibt am besten den Unterschied zwischen Stakeholder und Benutzerrolle?",
+    "options": [
+      "Ein Stakeholder ist eine konkrete Person oder Institution, die eine oder mehrere Rollen innehaben kann.",
+      "Ein Benutzerrolle repräsentiert verschiedene konkrete Benutzer, ein Stakeholder nicht.",
+      "Ein Stakeholder kann identisch mit einer Benutzerrolle sein."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "su1_q4",
+    "topic": "SU1 Stakeholder/Systemkontext",
+    "question": "Welche der folgenden Aussagen bzgl. Systemkontextdiagramm trifft zu?",
+    "options": [
+      "Die Systemgrenze verläuft zwischen dem zu entwickelnden System und dessen relevantem Kontext.",
+      "Die Systemgrenze verläuft zwischen den Komponenten des zu entwickelnden Systems.",
+      "Die Systemgrenze gehört nicht zum Systemkontextdiagramm."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "su1_q5",
+    "topic": "SU1 Stakeholder/Systemkontext",
+    "question": "Sie möchten die Stakeholder in Ihrem Produktentwicklungsprojekt identifizieren. Welche der folgenden Personengruppen wird eher keine nützlichen Stakeholder hervorbringen?",
+    "options": [
+      "Interessierte Personen aus der potenziellen Zielgruppe.",
+      "Verantwortliche Manager*innen unseres Entwicklungsprojekts.",
+      "Produktmanager*in eines Konkurrenzprodukts.",
+      "Domänen-Experten auf dem Gebiet, in dem das Produkt eingesetzt werden soll."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "su1_q6",
+    "topic": "SU1 Stakeholder/Systemkontext",
+    "question": "Welches der folgenden Elemente gehört nicht in ein Systemkontextdiagramm?",
+    "options": [
+      "Irrelevanter Kontext",
+      "Zu entwickelndes System",
+      "Komponenten des zu entwickelnden Systems",
+      "Relevanter Kontext"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "su1_q7",
+    "topic": "SU1 Stakeholder/Systemkontext",
+    "question": "Welche der folgenden Aussagen bzgl. Systemkontextdiagramm trifft zu?",
+    "options": [
+      "Die Kontextgrenze verläuft zwischen dem relevanten Kontext und dem irrelevanten Kontext.",
+      "Die Kontextgrenze verläuft zwischen dem zu entwickelnden System und dessen relevantem Kontext.",
+      "Die Kontextgrenze gehört nicht zum Systemkontextdiagramm."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "su1_q8",
+    "topic": "SU1 Stakeholder/Systemkontext",
+    "question": "Welche der folgenden Antworten beschreibt am besten den Begriff Stakeholder?",
+    "options": [
+      "Person, die als Stellvertreterin / Proxy die Zielgruppe / die Benutzer:innen des Produkts repräsentiert.",
+      "Person oder Organisation, welche Einfluss auf die Anforderungen für das zu entwickelnde Produkt hat.",
+      "Person, die Entscheidungen bzgl. Anforderungen für das zu entwickelnde Produkt fällt."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "su1_q9",
+    "topic": "SU1 Stakeholder/Systemkontext",
+    "question": "Für welches der folgenden Ziele ist ein gemeinsamer Workshop mit Stakeholdern besonders zielführend?",
+    "options": [
+      "Sammeln von Funktionalitäten.",
+      "Konsens über die Priorisierung gegensätzlicher Funktionalitäten erlangen.",
+      "Detailliertes Verständnis einzelner Funktionalitäten erlangen."
+    ],
+    "correctIndex": 1
+  },
+
+  {
+    "id": "ein_q1",
+    "topic": "Einführung",
+    "question": "Welche der folgenden Dinge ist keine Anforderung (Requirement) nach der Definition von Pohl/Rupp?",
+    "options": [
+      "Fähigkeit von Anwenderinnen und Anwendern zur Erreichung bestimmter Ziele",
+      "Fähigkeit eines Produkts, um formelle Vorgaben zu erfüllen",
+      "Fähigkeit eines Produkts, welche Benutzer/-innen benötigen"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "ein_q2",
+    "topic": "Einführung",
+    "question": "Welche der folgenden Aussagen zu Anforderungen trifft zu?",
+    "options": [
+      "Nur eine verschriftlichte Anforderung ist eine nützliche Anforderung.",
+      "Es ist wichtiger, dass die relevanten Entwicklerinnen und Entwickler die Anforderungen verstehen, als dass sie aufgeschrieben sind.",
+      "Die Anforderungen sollen von Vertretern der Zielgruppe selbst verschriftlicht werden."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "ein_q3",
+    "topic": "Einführung",
+    "question": "Welche der folgenden Eigenschaften deutet auf ein schwergewichtiges Vorgehensmodell hin?",
+    "options": [
+      "Projekt besteht aus einer großen Anzahl von Entwicklungsteams",
+      "Anforderungen werden vollständig dokumentiert, bevor Entwicklung startet",
+      "Entwicklungs-Zyklen (Iterationen) dauern länger als drei Wochen"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "ein_q4",
+    "topic": "Einführung",
+    "question": "Welche der folgenden Aussagen zu Verifikation vs. Validierung ist zutreffend?",
+    "options": [
+      "Wenn die Verifikation fehlschlägt, kann die Validierung trotzdem erfolgreich sein.",
+      "Wenn die Validierung fehlschlägt, muss auch die Verifikation fehlschlagen.",
+      "Wenn die Verifikation fehlschlägt, muss auch die Validierung fehlschlagen."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "ein_q5",
+    "topic": "Einführung",
+    "question": "Geben die Normen zum Software-Lebenszyklus und zum Requirements Engineering vor, welches Vorgehensmodell gewählt werden soll bzw. wie die Projektphasen und -iterationen zeitlich geregelt sein sollen?",
+    "options": ["ja", "nein"],
+    "correctIndex": 1
+  },
+  {
+    "id": "ein_q6",
+    "topic": "Einführung",
+    "question": "Ein \"klassisches\" wasserfallartiges Entwicklungsprojekt besteht aus langen aufeinanderfolgenden Phasen (z.B. Spezifikation, Entwurf, Implementierung, Test, Release). Man sagt, späte Änderungen der Anforderungen in solchen Projekten sind besonders kostspielig. Warum?",
+    "options": [
+      "Weil potenziell große Teile der Artefakte aus früheren Phasen (Anforderungen, Code, Tests) verworfen bzw. verändert werden müssen.",
+      "Weil Implementierung teurer ist als Anforderungsspezifikation.",
+      "Weil später im Projekt mehr Leute beteiligt sind als in den frühen Phasen."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "ein_q7",
+    "topic": "Einführung",
+    "question": "Requirements Engineering soll nach Pohl/Rupp ein Risiko minimieren. Welche der folgenden Aussagen beschreibt dieses Risiko am zutreffendsten?",
+    "options": [
+      "Das zu erstellende Produkt unterscheidet sich nicht ausreichend von Konkurrenzprodukten.",
+      "Das zu erstellende Produkt entspricht nicht den Bedürfnissen der Stakeholder.",
+      "Die Bedürfnisse der Stakeholder wurden nicht richtig verstanden."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "ein_q8",
+    "topic": "Einführung",
+    "question": "Welches der folgenden Merkmale passt nicht zu einer echten Produktentwicklung (vs. Auftragsentwicklung)?",
+    "options": [
+      "Der zeitliche Rahmen für das erste Kunden-Release ist auf nur ein Jahr begrenzt",
+      "Die Anforderungen werden vom Auftraggeber ermittelt",
+      "Die Anforderungen sind anfangs nicht klar vorgegeben"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "ein_q9",
+    "topic": "Einführung",
+    "question": "Welche der folgenden Tätigkeiten gehört nach der Definition von Pohl/Rupp nicht zu den Zielen von Requirements Engineering?",
+    "options": [
+      "relevante Anforderungen kennen",
+      "Konsens über die Anforderungen zwischen Stakeholdern herstellen",
+      "Anforderungen dokumentieren",
+      "Lösungen entwerfen, welche die relevanten Anforderungen abdecken"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "ein_q10",
+    "topic": "Einführung",
+    "question": "Welche der folgenden Aussagen beschreibt am zutreffendsten den Unterschied zwischen Validierung und Verifikation (ISO 9000)?",
+    "options": [
+      "Die Validierung umfasst eine Evaluation durch tatsächliche Benutzer.",
+      "Die Validierung prüft den Einsatz des Produkts für einen bestimmten Gebrauch/Zweck, also das Erreichen von Endzielen.",
+      "Die Validierung prüft subjektiv, die Verifikation objektiv."
+    ],
+    "correctIndex": 1
+  },
+
+  {
+    "id": "su2_q1",
+    "topic": "SU2 Personas/Kontext",
+    "question": "Wie sollte man Zielgruppen nach Cooper modellieren, um den Anforderungen aller User-Typen (Archetypen) eines Produkts gerecht zu werden?",
+    "options": [
+      "Anforderungen verschiedener User-Typen durch mehrere verschiedene Personas modellieren.",
+      "Die gemeinsamen Anforderungen verschiedener User-Typen in einer allgemeinen Persona zusammenfassen.",
+      "Alle Anforderungen verschiedener User-Typen in einer gemeinsamen Persona zusammenfassen."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "su2_q2",
+    "topic": "SU2 Personas/Kontext",
+    "question": "Welches der folgenden Formulierungen beschreibt ein Benutzer-Ziel (und nicht eine Produktanforderung) für den Clinician Programmer?",
+    "options": [
+      "Amplitude einstellen",
+      "mit IPG verbinden",
+      "therapeutisches Fenster finden"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "su2_q3",
+    "topic": "SU2 Personas/Kontext",
+    "question": "Welches der folgenden Formulierungen beschreibt eine Produktanforderung (und nicht ein Benutzer-Ziel) für den Clinician Programmer?",
+    "options": [
+      "implantierte Komponenten eingeben und auf IPG speichern",
+      "Therapieparameter für Patienten optimal einstellen",
+      "analysieren, wie stark die therapeutische Wirkung eines Lead-Kontakts ist"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "su2_q4",
+    "topic": "SU2 Personas/Kontext",
+    "question": "Was versteht man im Zusammenhang mit Personas unter elastischer User?",
+    "options": [
+      "Der Entwurfsprozess wird unterstützt durch einen oder mehrere User, die sich auf verschiedene UI-Designs einlassen und dazu Feedback geben können.",
+      "Designentscheidungen basieren nicht auf den Anforderungen eines Zielgruppentyps, sondern auf einer verzerrenden Mischung der Anforderungen mehrerer User-Typen."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "su2_q5",
+    "topic": "SU2 Personas/Kontext",
+    "question": "Beschreibt das folgende Artefakt eine Anforderung im Problemraum oder im Lösungsraum? \"Der Clinician Programmer soll es dem Therapeuten / der Therapeutin ermöglichen, an jedem angeschlossenen Kontakt eine Amplitude von 0 bis 100 mA in 1-mA-Schritten einzustellen.\"",
+    "options": ["Problemraum", "Lösungsraum"],
+    "correctIndex": 1
+  },
+  {
+    "id": "su2_q6",
+    "topic": "SU2 Personas/Kontext",
+    "question": "Welche der folgenden Dinge gehören nicht in ein Kontextszenario nach Cooper?",
+    "options": [
+      "Endergebnis / Ziel, welches durch den Einsatz des Produkts erreicht wird",
+      "Potenzielle Probleme bei der Benutzung des zu entwickelnden Produkts",
+      "Beschreibung einer gemeinsamen Nutzung des Produkts durch mehrere User"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "su2_q7",
+    "topic": "SU2 Personas/Kontext",
+    "question": "In welche Ebene der Anforderungspyramide gehören Systemanforderungen?",
+    "options": [
+      "Problemraum",
+      "Lösungsraum",
+      "zwischen Problemraum und Lösungsraum"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "su2_q8",
+    "topic": "SU2 Personas/Kontext",
+    "question": "Wie identifiziert man die Personas für die Benutzer eines Produkts?",
+    "options": [
+      "Extraktion von Zielen und Verhaltensmustern auf Basis von User-Befragungen oder -Beobachtungen",
+      "Modellieren einer abstrakten Zielgruppe auf Basis der Erfahrungen und Wünsche der beteiligten Stakeholder",
+      "Für alle Anforderungen jeder Benutzerrolle jeweils eine Persona ausdenken"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "su2_q9",
+    "topic": "SU2 Personas/Kontext",
+    "question": "Welche der folgenden Dinge gehören nicht in ein Kontextszenario nach Cooper?",
+    "options": [
+      "Räumlicher und zeitlicher Kontext, in dem das Produkt verwendet wird",
+      "Beschreibung von Unterbrechungen bei der Benutzung",
+      "Beschreibung des User Interface des zukünftigen Produkts"
+    ],
+    "correctIndex": 2
+  },
+
+  {
+    "id": "su3_q1",
+    "topic": "SU3 User Stories/CCC/INVEST",
+    "question": "Welche der folgenden Antworten beschreibt am besten das INVEST-Kriterium (N)egotiable nach Wake?",
+    "options": [
+      "Der Kern der Story bleibt verhandelbar, da Anforderungen am Anfang noch nicht so klar sind.",
+      "Die Story ist so geschrieben, dass Hersteller und User noch darüber verhandeln können.",
+      "Die Story repräsentiert den Kern der Anforderung und enthält keine unnötigen oder verfrühten Lösungsdetails."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "su3_q2",
+    "topic": "SU3 User Stories/CCC/INVEST",
+    "question": "Wofür steht CCC nach Jeffries?",
+    "options": [
+      "Contemplation Conversation Confirmation",
+      "Card Convention Conversation",
+      "Card Confirmation Conversation",
+      "Convention Conversation Confirmation",
+      "Card Conversation Confirmation"
+    ],
+    "correctIndex": 4
+  },
+  {
+    "id": "su3_q3",
+    "topic": "SU3 User Stories/CCC/INVEST",
+    "question": "Welches INVEST-Qualitätskriterium ist bei der folgenden User Story am schwersten verletzt? (Neurochirurgin: mehrfach Impedanz messen, Tabelle nach Zeit sortiert, größte Messung rot hervorgehoben …)",
+    "options": ["E", "N", "V", "S"],
+    "correctIndex": 1
+  },
+  {
+    "id": "su3_q4",
+    "topic": "SU3 User Stories/CCC/INVEST",
+    "question": "Welches INVEST-Qualitätskriterium ist bei der folgenden User Story am schwersten verletzt? (DBS-Therapeutin: für jeden Kontakt anzeigen, um wie viel Zeit der Strom-Puls durch Interleaving verschoben wird …)",
+    "options": ["E", "S", "N", "V"],
+    "correctIndex": 0
+  },
+  {
+    "id": "su3_q5",
+    "topic": "SU3 User Stories/CCC/INVEST",
+    "question": "Welche der folgenden Antworten beschreibt am besten, wofür der Punkt Conversation in CCC nach Jeffries steht?",
+    "options": [
+      "man schreibt nichts auf, ohne es vorher zu besprechen",
+      "man sollte die Ergebnisse von Besprechungen (Conversations), die für die Story relevant sind, möglichst verschriftlichen, denn sie gehören zur Story",
+      "neben den verschriftlichten Informationen sollen auch die Informationen, die zu dieser Story auf anderem Wege besprochen wurden, im Prozess berücksichtigt werden"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "su3_q6",
+    "topic": "SU3 User Stories/CCC/INVEST",
+    "question": "Welcher der folgenden Punkte gehört nicht auf die Vorderseite einer Story Card?",
+    "options": ["offene Punkte", "Aufwandsabschätzung", "Story Narrative", "Akzeptanzkriterien"],
+    "correctIndex": 3
+  },
+  {
+    "id": "su3_q7",
+    "topic": "SU3 User Stories/CCC/INVEST",
+    "question": "Welches INVEST-Qualitätskriterium ist bei der folgenden User Story am schwersten verletzt? (… während der Programmierung für jeden Kontakt auch dessen Impedanzwert angezeigt wird.)",
+    "options": ["V", "N", "E", "S"],
+    "correctIndex": 0
+  },
+  {
+    "id": "su3_q8",
+    "topic": "SU3 User Stories/CCC/INVEST",
+    "question": "Was passiert mit den Informationen, die zu einer Story gehören, aber nicht aufgeschrieben sind?",
+    "options": [
+      "Der agile Entwicklungsprozess muss dafür sorgen, dass diese Informationen den relevanten Personen bekannt gemacht werden, z.B. durch mündliche Besprechung in der Sprintplanung.",
+      "Diese Informationen müssen nicht sofort, sondern erst später (just in time) aufgeschrieben werden, z.B. kurz vor der Sprintplanung."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "su3_q9",
+    "topic": "SU3 User Stories/CCC/INVEST",
+    "question": "Welches ist das größte Risiko bei der Verwendung von Technical Stories?",
+    "options": [
+      "Technical Stories und auch User Stories beschreiben die zu entwickelnden Anforderungen aus verschiedenen Perspektiven; daher führt die Verwendung von Technical Stories zu keinem zusätzlichen Projektrisiko.",
+      "Technical Stories beschreiben Anforderungen und Ziele des Entwicklungsteams; daher verliert man bei einem Übergang von Technical Stories potenziell die Ziele der Kunden aus den Augen.",
+      "Da die Technical Stories aus Sicht der Entwicklung formuliert sind, kann es passieren, dass der/die Product Owner die Stories nicht richtig versteht."
+    ],
+    "correctIndex": 1
+  },
+
+  {
+    "id": "suz03_q1",
+    "topic": "SU Z03 Use Cases/Diagramme",
+    "question": "Wie kann man mit einem Sequenzdiagramm mehrere Szenarien eines Use Cases darstellen?",
+    "options": [
+      "mit mehreren Pfeiltypen",
+      "gar nicht",
+      "mit mehreren Swim Lanes",
+      "mit Verzweigungen"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "suz03_q2",
+    "topic": "SU Z03 Use Cases/Diagramme",
+    "question": "In welcher Form soll das UI des Produkts in einem textuellen Use Case nach Cockburn beschrieben werden?",
+    "options": [
+      "möglichst genau",
+      "möglichst gar nicht",
+      "nur die IDs der Elemente beschreiben, mit denen der User interagiert"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "suz03_q3",
+    "topic": "SU Z03 Use Cases/Diagramme",
+    "question": "Welche der folgenden Aussagen trifft zu?",
+    "options": [
+      "Weder Use Case Diagramme noch Sequenzdiagramme können zeitliche Abläufe darstellen.",
+      "Sequenzdiagramme können keine zeitlichen Abläufe darstellen, Use Case Diagramme können es.",
+      "Sowohl Use Case Diagramme als auch Sequenzdiagramme können zeitliche Abläufe darstellen.",
+      "Use Case Diagramme können keine zeitlichen Abläufe darstellen, Sequenzdiagramme können es."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "suz03_q4",
+    "topic": "SU Z03 Use Cases/Diagramme",
+    "question": "Was heißt es, wenn in einem Use Case Diagramm eine include-Beziehung von A nach B besteht?",
+    "options": [
+      "Use Case B wird optional durchlaufen, wenn A durchlaufen wird.",
+      "Use Case A wird immer durchlaufen, wenn B durchlaufen wird.",
+      "Use Case A wird optional durchlaufen, wenn B durchlaufen wird.",
+      "Use Case B wird immer durchlaufen, wenn A durchlaufen wird."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "suz03_q5",
+    "topic": "SU Z03 Use Cases/Diagramme",
+    "question": "Wieviele Schritte sollte ein Use Case Scenario nach Cockburn ungefähr umfassen?",
+    "options": ["3-9", "je mehr, desto besser/genauer", "1-2", "10-15"],
+    "correctIndex": 0
+  },
+  {
+    "id": "suz03_q6",
+    "topic": "SU Z03 Use Cases/Diagramme",
+    "question": "Szenarien fasst man in einem Use Case zusammen, wenn …?",
+    "options": [
+      "… sie auf dem gleichen UI-Screen ablaufen.",
+      "… sie zum gleichen User-Ziel führen.",
+      "… sie zum gleichen Akteur gehören.",
+      "… sie die gleichen Aktivitäten beinhalten."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "suz03_q7",
+    "topic": "SU Z03 Use Cases/Diagramme",
+    "question": "Beim Schreiben eines Use Cases nach Cockburn startet man…",
+    "options": [
+      "… mit dem Beschreiben des typischen Erfolgsfalls.",
+      "… mit dem Erstellen einer tabellarischen Vorlage.",
+      "… mit dem Beschreiben des schwierigsten Sonderfalls.",
+      "… mit dem Beschreiben des wichtigsten Fehlerfalls."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "suz03_q8",
+    "topic": "SU Z03 Use Cases/Diagramme",
+    "question": "Welches der folgenden Artefakt-Typen eignet sich nicht für die Beschreibung der Abläufe innerhalb eines Use Cases?",
+    "options": [
+      "Use Case Diagramm",
+      "Textueller Use Case nach Cockburn",
+      "Sequenzdiagramm mit Erweiterungen"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "suz03_q9",
+    "topic": "SU Z03 Use Cases/Diagramme",
+    "question": "Was heißt es, wenn in einem Use Case Diagramm eine extend-Beziehung von A nach B besteht? (A extends B)",
+    "options": [
+      "Use Case A muss zwingend innerhalb von Use Case B ablaufen.",
+      "Use Case A kann optional irgendwo innerhalb von Use Case B ablaufen.",
+      "Use Case A muss zwingend nach Use Case B ablaufen.",
+      "Use Case B kann optional nach Use Case A ablaufen."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "suz03_q10",
+    "topic": "SU Z03 Use Cases/Diagramme",
+    "question": "Welche Aspekte sind nach Cockburn beim Use Case wichtiger als die anderen hier aufgeführten?",
+    "options": [
+      "Lesbarkeit der Use Cases",
+      "Vollständigkeit und Strukturiertheit der Beschreibung",
+      "Technisches Detail-Level der Beschreibung"
+    ],
+    "correctIndex": 0
+  },
+
+  {
+    "id": "su05_q1",
+    "topic": "SU05 Qualitätsanforderungen/Systemanforderungen",
+    "question": "Enthält die folgende Anforderung eine Qualitätsanforderung? \"Der Clinician Programmer muss dem Therapeuten ermöglichen, die Stimulation sehr einfach zu stoppen.\"",
+    "options": ["Nein, enthält keine Qualitätsanforderung", "Ja, enthält Qualitätsanforderung"],
+    "correctIndex": 1
+  },
+  {
+    "id": "su05_q2",
+    "topic": "SU05 Qualitätsanforderungen/Systemanforderungen",
+    "question": "Enthält die folgende Anforderung eine Qualitätsanforderung? \"… das Ramping der Amplitude zu pausieren, ohne die Stimulation zu beenden.\"",
+    "options": ["Nein, enthält keine Qualitätsanforderung", "Ja, enthält Qualitätsanforderung"],
+    "correctIndex": 0
+  },
+  {
+    "id": "su05_q3",
+    "topic": "SU05 Qualitätsanforderungen/Systemanforderungen",
+    "question": "Enthält die folgende Anforderung eine Qualitätsanforderung? \"… alle 10 Sekunden den Batteriestatus des IPG abfragen und die Anzeige aktualisieren.\"",
+    "options": ["Nein, enthält keine Qualitätsanforderung", "Ja, enthält Qualitätsanforderung"],
+    "correctIndex": 0
+  },
+  {
+    "id": "su05_q4",
+    "topic": "SU05 Qualitätsanforderungen/Systemanforderungen",
+    "question": "Welchen Zusammenhang gibt es zwischen Software-Architektur und Anforderungen?",
+    "options": [
+      "Komponenten-Anforderungen spezifizieren, wie sich die einzelnen Teile der Software-Architektur verhalten sollen.",
+      "Es gibt keinen Zusammenhang zwischen Architektur und Anforderungen.",
+      "Systemanforderungen beschreiben, welche Aufgaben von welchen Komponenten der Architektur übernommen werden."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "su05_q5",
+    "topic": "SU05 Qualitätsanforderungen/Systemanforderungen",
+    "question": "Enthält die folgende Anforderung eine Qualitätsanforderung? \"… die Stimulation in weniger als 1 Sekunde zu stoppen.\"",
+    "options": ["Ja, enthält Qualitätsanforderung", "Nein, enthält keine Qualitätsanforderung"],
+    "correctIndex": 0
+  },
+  {
+    "id": "su05_q6",
+    "topic": "SU05 Qualitätsanforderungen/Systemanforderungen",
+    "question": "Enthält die folgende Anforderung eine Qualitätsanforderung? \"… anzeigen, welcher Lead mit welcher Gehirnhälfte des Patienten verbunden ist\"",
+    "options": ["Nein, enthält keine Qualitätsanforderung", "Ja, enthält Qualitätsanforderung"],
+    "correctIndex": 0
+  },
+  {
+    "id": "su05_q7",
+    "topic": "SU05 Qualitätsanforderungen/Systemanforderungen",
+    "question": "Welche Bedeutung haben Anforderungen für die Verifikation?",
+    "options": [
+      "Eine Anforderung sollte durch eine oder mehrere Tests verifiziert werden.",
+      "Für die Verifikation spielen Anforderungen keine Rolle."
+    ],
+    "correctIndex": 0
+  },
+
+  {
+    "id": "su04_q1",
+    "topic": "SU04 Scrum/Kanban",
+    "question": "Welche Scrum-Rolle übernimmt das Abschätzen von Backlog-Einträgen beim Sprint Planning?",
+    "options": ["Entwicklungsteam", "Scrum Master", "Auftraggeber", "Product Owner"],
+    "correctIndex": 0
+  },
+  {
+    "id": "su04_q2",
+    "topic": "SU04 Scrum/Kanban",
+    "question": "Welche Aussage zu den Scrum Backlog(s) trifft zu?",
+    "options": [
+      "Produkt- und Sprintbacklog ändern sich, wenn neue Anforderungen umgesetzt werden sollen.",
+      "Das Sprint Backlog ändert sich ständig, das Produktbacklog nicht.",
+      "Das Produktbacklog ändert sich ständig, das Sprint Backlog nicht."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "su04_q3",
+    "topic": "SU04 Scrum/Kanban",
+    "question": "Welche Scrum-Rolle ist für die Pflege des Backlog verantwortlich?",
+    "options": ["Product Owner", "Stakeholder", "Scrum Master", "Entwicklungsteam und Product Owner"],
+    "correctIndex": 0
+  },
+  {
+    "id": "su04_q4",
+    "topic": "SU04 Scrum/Kanban",
+    "question": "In welchem Scrum Meeting (ggf. auch im engen Sprint) wird üblicherweise bewertet, ob und wie man die Prozesse verbessern soll?",
+    "options": ["Sprint Planning I", "Daily Scrum", "Sprint Planning II", "Sprint Review", "Sprint Retrospective"],
+    "correctIndex": 4
+  },
+  {
+    "id": "su04_q5",
+    "topic": "SU04 Scrum/Kanban",
+    "question": "Welche Scrum-Rolle darf bei der Schätzung von Backlog-Einträgen beim Sprint Planning mitentscheiden?",
+    "options": ["Scrum Master", "Product Owner", "Stakeholder", "Entwicklungsteam"],
+    "correctIndex": 1
+  },
+  {
+    "id": "su04_q6",
+    "topic": "SU04 Scrum/Kanban",
+    "question": "Welche Scrum-Rolle ist für das Erkennen von Abhängigkeiten (Impediments) nach dem Daily Scrum zuständig?",
+    "options": ["Product Owner", "Scrum Manager", "Entwicklungsteam", "Scrum Master"],
+    "correctIndex": 3
+  },
+  {
+    "id": "su04_q7",
+    "topic": "SU04 Scrum/Kanban",
+    "question": "Was soll im Sprint Planning stehen?",
+    "options": [
+      "Ziele und Claims/Results",
+      "Backlog und Umsetzungsstrategie",
+      "Alles, was im Produkt inkludiert / verändert werden soll",
+      "Was Scrum im Abnahmekriterien"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "su04_q8",
+    "topic": "SU04 Scrum/Kanban",
+    "question": "Welche Scrum Rolle ist für das Moderieren vom Scrum Meeting zuständig?",
+    "options": ["Product Owner", "Scrum Master", "Externer Moderator", "Entwicklungsteam"],
+    "correctIndex": 1
+  },
+  {
+    "id": "su04_q9",
+    "topic": "SU04 Scrum/Kanban",
+    "question": "Wie wirkt sich Timeboxing (zeitliche Stabilität) bei Projektarbeiten in einem agilen Projekt i.d.R. sinnvoll aus?",
+    "options": [
+      "Die Schwierigkeit wird über den gesamten Projektverlauf hoch und schwankt mit dem Rhythmus der Iterationen.",
+      "Timeboxing reduziert die Abhängigkeiten zwischen Teams und Systemen.",
+      "Timeboxing macht Planung überflüssig, weil man immer nach Rhythmus arbeitet."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "su04_q10",
+    "topic": "SU04 Scrum/Kanban",
+    "question": "Nach welchem Prinzip wird agiles Projekt geplant, welche Features zuerst implementiert werden?",
+    "options": [
+      "Wichtigkeit und Details",
+      "Mehrwert und Risiko",
+      "Risiko und Unterbringbarkeit von anderen Features",
+      "Risiko und Umfang"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "su04_q11",
+    "topic": "SU04 Scrum/Kanban",
+    "question": "Aus welcher agilen Technik stammt ursprünglich die Idee, die Menge angefangener Arbeit zu begrenzen?",
+    "options": ["Kanban", "Extreme Programming", "Scrum Programming", "Lean", "V-Modell"],
+    "correctIndex": 0
+  },
+  {
+    "id": "su04_q12",
+    "topic": "SU04 Scrum/Kanban",
+    "question": "Welche Werke werden in der Darstellung des aktuellen Zeitplans im BurnDown Chart bei Scrum einbezogen?",
+    "options": [
+      "Bereits erledigte Arbeit und aktuelle Schätzung der verbleibenden Arbeit",
+      "Bereits erledigte Arbeit und initiale Schätzung der Arbeit"
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "su04_q13",
+    "topic": "SU04 Scrum/Kanban",
+    "question": "Welche der folgenden Aussagen entspricht einem der vier Werte des agilen Manifests?",
+    "options": [
+      "We value the developer perspective more than the business perspective",
+      "We value individuals and interactions more than processes and tools",
+      "We value change more than stability",
+      "We value the user perspective more than the developer perspective"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "su04_q14",
+    "topic": "SU04 Scrum/Kanban",
+    "question": "Wie geht man beim Sprint Planning mit Abhängigkeiten zwischen mehreren Aufgaben / Tickets um?",
+    "options": [
+      "Schreibe abhängige Stories in den nächsten Sprint",
+      "Plane ein Meeting mit den Betroffenen, um die Abhängigkeit innerhalb des Sprints zu beseitigen",
+      "Gib Tickets mit gegenseitigen Abhängigkeiten zurück an Product Owner; er/sie soll sie so zum nächsten Sprint anders schneiden"
+    ],
+    "correctIndex": 0
+  },
+
+  {
+    "id": "su07_q1",
+    "topic": "SU07 Slicing/Splitting",
+    "question": "Welche der folgenden Aussagen zu Verfeinern/Splitting/Slicing ist richtig?",
+    "options": [
+      "Das Verfeinern / Splitting von Stories erzeugt Stories, welche nicht mehr alle INVEST-Kriterien einhalten müssen.",
+      "Beim vertikalen Slicing von Stories entstehen wieder Stories, welche die INVEST-Kriterien einhalten müssen.",
+      "Beim Verfeinern/Splitting von Stories entstehen wieder Stories, welche die INVEST-Kriterien einhalten müssen."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "su07_q2",
+    "topic": "SU07 Slicing/Splitting",
+    "question": "Welche der folgenden Vorgehensweisen wird nach Larman am ehesten empfohlen, um Abläufe in mehrere Arbeitseinheiten zu splitten?",
+    "options": [
+      "Anfang und Ende zusammen zuerst umsetzen.",
+      "Die hinteren N Schritte umsetzen, so dass der Umfang noch in den Sprint passt.",
+      "Die vorderen N Schritte umsetzen, so dass der Umfang noch in den Sprint passt.",
+      "Jeden Schritt einzeln umsetzen."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "su07_q3",
+    "topic": "SU07 Slicing/Splitting",
+    "question": "Welche der folgenden Aussagen zu Slicing ist am zutreffendsten?",
+    "options": [
+      "Beim Slicing müssen Abhängigkeiten zum Implementierungsstand nicht berücksichtigt werden.",
+      "Beim Slicing müssen die INVEST-Kriterien nicht eingehalten werden.",
+      "Beim Slicing darf explizit Bezug auf den Entwicklungsstand genommen werden."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "su07_q4",
+    "topic": "SU07 Slicing/Splitting",
+    "question": "Wenn eine funktionale Systemanforderung durch Komponentenanforderungen konkretisiert wird, wird die Systemanforderung dann weiterhin benötigt?",
+    "options": [
+      "Nein, sie ist nach der Verfeinerung redundant und kann entfernt werden.",
+      "Ja, denn man kann i.A. nicht sagen, ob die Komponenten-Anf. die System-Anf. vollständig umsetzen."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "su07_q5",
+    "topic": "SU07 Slicing/Splitting",
+    "question": "Welche der folgenden Aussagen zu vertikalem Slicing ist am zutreffendsten?",
+    "options": [
+      "Nur vertikale Slices können sicherstellen, dass ein Slice auch wirklich Mehrwert demonstriert und liefert.",
+      "Wenn ein Slice durch mehrere Schichten der Software-Architektur geht, kann ich damit immer Mehrwert demonstrieren.",
+      "Wenn ich Slices erzeuge, die Mehrwert demonstrieren, müssen diese oftmals mehrere Schichten der Software-Architektur abdecken, also vertikal sein."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "su07_q6",
+    "topic": "SU07 Slicing/Splitting",
+    "question": "Welche der folgenden Aussagen zum Zusammenhang von Slices und Verifikation & Validierung ist am zutreffendsten?",
+    "options": [
+      "Vertikale Slices erleichtern die Validierung des Produkts.",
+      "Vertikale Slices erleichtern das Schreiben von Unit Tests für das Produkt.",
+      "Es gibt keinen konkreten Zusammenhang zwischen Slicing und Verifikation bzw. Validierung."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "su07_q7",
+    "topic": "SU07 Slicing/Splitting",
+    "question": "Welche der folgenden Aussagen zum Thema Umfang eines Slices ist am zutreffendsten?",
+    "options": [
+      "Slices sind scalable, d.h. je nach Projektphase kann der Implementierungsumfang größer oder kleiner sein.",
+      "Slices sollen innerhalb einer agilen Iteration (z.B. in einem Sprint) umsetzbar sein.",
+      "Slices sollen immer möglichst klein sein, damit der Implementierungsumfang für einen Sprint möglichst genau geschätzt werden kann."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "su07_q8",
+    "topic": "SU07 Slicing/Splitting",
+    "question": "Welches der folgenden Kriterien ist kein wichtiges Qualitätskriterium für Slices?",
+    "options": [
+      "Slices sollen Mehrwert für User/Stakeholder schaffen.",
+      "Slices sollen Feedback von User/Stakeholdern ermöglichen.",
+      "Slices sollen funktionierende Software erzeugen und testbar sein.",
+      "Slices sollen nur den Kern der Features beschreiben, keine Implementierungsdetails."
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "su07_q9",
+    "topic": "SU07 Slicing/Splitting",
+    "question": "Wenn Sie eine Qualitätsanforderung (QA) durch funktionale Anforderungen (FA) konkretisieren, wird die QA dann i.A. weiterhin benötigt?",
+    "options": [
+      "Ja, denn man kann i.A. nicht sagen, ob die Menge von FA für das Umsetzen einer QA hinreichend sind.",
+      "Nein, denn sie ist nach der Konkretisierung redundant und sollte daher entfernt werden."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "su07_q10",
+    "topic": "SU07 Slicing/Splitting",
+    "question": "Welche der folgenden Aussagen zu Slicing ist am zutreffendsten?",
+    "options": [
+      "Slicing ist hilfreich beim Entwurf der Software-Architektur.",
+      "Slicing ist hilfreich beim Übergang vom Produkt- zum Sprintbacklog.",
+      "Slicing ist hilfreich bei der Releaseplanung."
+    ],
+    "correctIndex": 1
+  },
+
+  {
+    "id": "su06_q1",
+    "topic": "SU06 Backlog/Release/Story Map/Kano",
+    "question": "Welche der folgenden Aussagen zu Merkmalen nach Kano ist richtig?",
+    "options": [
+      "Basismerkmale werden nach einiger Zeit oft zu Begeisterungsmerkmalen.",
+      "Begeisterungsmerkmale werden nach einiger Zeit oft zu Leistungsmerkmalen.",
+      "Leistungsmerkmale werden nach einiger Zeit oft zu Begeisterungsmerkmalen."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "su06_q2",
+    "topic": "SU06 Backlog/Release/Story Map/Kano",
+    "question": "Welche der folgenden Aussagen beschreibt am zutreffendsten die Struktur einer Story Map?",
+    "options": [
+      "Die X-Achse repräsentiert die verschiedenen Aktivitäten/Phasen beim Benutzen des Produkts, und die Y-Achse die zugehörigen Epics/Alternativen.",
+      "Auf der X-Achse sind die Epics angeordnet, und auf der Y-Achse die zugehörigen Stories.",
+      "Die X-Achse repräsentiert die Epics, und die Y-Achse die zugehörigen Schritte in zeitlicher Reihenfolge."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "su06_q3",
+    "topic": "SU06 Backlog/Release/Story Map/Kano",
+    "question": "Welche der folgenden Aussagen beschreibt am besten, wie die Kano-Klassifizierung bei der Releaseplanung berücksichtigt werden sollte, um Kundenzufriedenheit zu gewährleisten?",
+    "options": [
+      "Das Release sollte vor allem die Leistungsmerkmale so gut wie möglich umsetzen, und einige Begeisterungsmerkmale.",
+      "Das Release sollte möglichst alle Basismerkmale enthalten, und ausgesuchte Begeisterungsmerkmale.",
+      "Das Release sollte möglichst viele Begeisterungsmerkmale enthalten, und einige der Basismerkmale."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "su06_q4",
+    "topic": "SU06 Backlog/Release/Story Map/Kano",
+    "question": "Durch bipolare Befragung haben Sie herausgefunden, dass Feature A ein Leistungsmerkmal ist. Welches der folgenden Ergebnisse der Befragung passt zu dieser Einordnung?",
+    "options": [
+      "den Kundinnen ist es egal, wenn A nicht umgesetzt wird.",
+      "den Kundinnen ist es egal, wenn A gut umgesetzt wird.",
+      "die Kundinnen sind zufrieden, wenn A gut umgesetzt wird."
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "su06_q5",
+    "topic": "SU06 Backlog/Release/Story Map/Kano",
+    "question": "Eine Befragung ergibt, dass die Kunden es sehr gut finden, wenn Feature A im Produkt umgesetzt wird. Welche Information fehlt noch, um zu wissen, ob es sich bei A um ein Basis-, ein Leistungs-, oder ein Begeisterungsmerkmal nach Kano handelt?",
+    "options": [
+      "Wie lang verzögert sich das Produkt durch Feature A?",
+      "Wie fänden es die Kunden, wenn Feature A nicht im Produkt umgesetzt würde?",
+      "Wie fänden es die Kundinnen, wenn das alternative Feature B im Produkt umgesetzt würde?"
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "su06_q6",
+    "topic": "SU06 Backlog/Release/Story Map/Kano",
+    "question": "Welches der folgenden Punkte ist der wohl klarste Vorteil einer Story Map bei der Releaseplanung, gegenüber einer Darstellung in Backlog-Form?",
+    "options": [
+      "dass die Releases übersichtlich anhand der Y-Achse abzulessen sind",
+      "dass die 2D-Darstellung deutlich kompakter und schneller zu lesen ist als ein langes 1D-Backlog",
+      "dass man den Workflow, den ein Release den Usern ermöglicht, leicht nachvollziehen kann"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "su06_q7",
+    "topic": "SU06 Backlog/Release/Story Map/Kano",
+    "question": "Durch bipolare Befragung haben Sie herausgefunden, dass Feature A ein Basismerkmal ist. Welches der folgenden Ergebnisse der Befragung passt zu dieser Einordnung?",
+    "options": [
+      "Den Kundinnen ist es egal, wenn A nicht umgesetzt wird.",
+      "Die Kundinnen sind nicht zufrieden, nur weil A gut umgesetzt wird.",
+      "Die Kundinnen sind begeistert, wenn A sehr gut umgesetzt wird."
+    ],
+    "correctIndex": 1
+  },
+  {
+    "id": "su06_q8",
+    "topic": "SU06 Backlog/Release/Story Map/Kano",
+    "question": "Welche der folgenden Aussagen zur Bedeutung des Produktbacklogs für die Priorisierung ist am zutreffendsten?",
+    "options": [
+      "Die Reihenfolge im Produktbacklog ist die Priorisierung.",
+      "Die Reihenfolge im Produktbacklog stellt die Implementierungsreihenfolge dar; diese muss z.B. wegen Abhängigkeiten nicht immer mit der Wichtigkeit/Priorisierung übereinstimmen.",
+      "Die Reihenfolge im Produktbacklog stellt die Implementierungsreihenfolge dar; die Priorisierung wird typischerweise mit einer 3- oder 5-stelligen Skala angegeben (z.B. niedrig, mittel, hoch)."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "su06_q9",
+    "topic": "SU06 Backlog/Release/Story Map/Kano",
+    "question": "Welche der folgenden Aussagen beschreibt am zutreffendsten den Zusammenhang zwischen Backlog und Releaseplanung?",
+    "options": [
+      "Das nächste Release ist ein zusammenhängender Abschnitt des Produktbacklogs, vom obersten Eintrag an betrachtet.",
+      "Um ein Release zu planen, wird auf Basis der Roadmap ein Zeitrahmen vorgegeben und dann vom Umfang her passende Stories aus dem Produktbacklog dafür zusammengestellt.",
+      "Um ein Release zu planen, werden inhaltlich zusammenhängende Stories aus dem Produktbacklog zu Paketen geschnürt."
+    ],
+    "correctIndex": 0
+  }
+]

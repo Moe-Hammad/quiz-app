@@ -254,96 +254,141 @@
         });
       }
 
-      // --- Fehlerliste + Modus (persistiert im Browser) ---
-      const WRONG_KEY = "quiz_wrong_ids_v1";
-      let wrongSet = new Set();          // enthält question.id
-      let quizMode = "all";              // "all" | "wrong"
+      // --- Persistenter Zustand (localStorage) ---
+// Ziel: Nach Reload soll NICHTS verloren gehen (Fehlerliste + Modus).
+// Hinweis: localStorage ist pro Origin (Domain+Port) getrennt.
 
-      function loadWrongSet() {
-        try {
-          const raw = localStorage.getItem(WRONG_KEY);
-          if (!raw) return new Set();
-          const arr = JSON.parse(raw);
-          if (!Array.isArray(arr)) return new Set();
-          return new Set(arr.filter((x) => typeof x === "string"));
-        } catch {
-          return new Set();
-        }
-      }
+const STATE_KEY = "quiz_state_v1";
 
-      function saveWrongSet() {
-        try {
-          localStorage.setItem(WRONG_KEY, JSON.stringify([...wrongSet]));
-        } catch {
-          // ignore
-        }
-      }
+function nowIso() {
+  return new Date().toISOString();
+}
 
-      function addWrong(id) {
-        if (!id) return;
-        wrongSet.add(id);
-        saveWrongSet();
-        updateWrongPill();
-        renderWrongPanel();
-      }
+function defaultState() {
+  return {
+    version: 1,
+    createdAt: nowIso(),
+    updatedAt: nowIso(),
+    mode: "all",        // "all" | "wrong"
+    wrongIds: []        // Array von question.id
+  };
+}
 
-      function removeWrong(id) {
-        if (!id) return;
-        if (wrongSet.delete(id)) {
-          saveWrongSet();
-          updateWrongPill();
-          renderWrongPanel();
-        }
-      }
+function loadState() {
+  try {
+    const raw = localStorage.getItem(STATE_KEY);
+    if (!raw) {
+      const s = defaultState();
+      localStorage.setItem(STATE_KEY, JSON.stringify(s));
+      return s;
+    }
+    const s = JSON.parse(raw);
+    // Auto-Reparatur / Auto-Init falls irgendwas fehlt
+    const base = defaultState();
+    const merged = {
+      ...base,
+      ...s,
+      wrongIds: Array.isArray(s?.wrongIds) ? s.wrongIds.filter(x => typeof x === "string") : [],
+      mode: (s?.mode === "wrong" || s?.mode === "all") ? s.mode : "all",
+    };
+    // Falls Struktur geändert/kaputt war: wieder speichern
+    localStorage.setItem(STATE_KEY, JSON.stringify({ ...merged, updatedAt: nowIso() }));
+    return merged;
+  } catch (e) {
+    // Wenn JSON kaputt ist: reset auf default (damit App wieder läuft)
+    const s = defaultState();
+    try { localStorage.setItem(STATE_KEY, JSON.stringify(s)); } catch {}
+    return s;
+  }
+}
 
-      function updateWrongPill() {
-        el.wrongPill.textContent = `Fehler: ${wrongSet.size}`;
-      }
+function saveState(state) {
+  try {
+    state.updatedAt = nowIso();
+    localStorage.setItem(STATE_KEY, JSON.stringify(state));
+  } catch {
+    // Wenn Storage blockiert ist (Inkognito/Restriktionen), kann man nichts speichern.
+  }
+}
 
-      function setMode(mode) {
-        quizMode = mode;
-        resetPool();     // baut Pool je nach Modus neu
-        render();
-        el.status.textContent = (quizMode === "wrong")
-          ? "Fehler-Modus aktiv"
-          : "Normal-Modus aktiv";
-      }
+let state = loadState();
 
-      function renderWrongPanel() {
-        if (!el.wrongPanel) return;
-        const ids = [...wrongSet];
-        el.wrongPanelTitle.textContent = `Fehlerliste (${ids.length})`;
-        el.wrongList.innerHTML = "";
+// --- Fehlerliste + Modus (aus state, persistiert im Browser) ---
+let wrongSet = new Set(state.wrongIds);  // enthält question.id
+let quizMode = state.mode;              // "all" | "wrong"
 
-        // Map für schnellen Zugriff
-        const byId = new Map(QUESTIONS.map(q => [q.id, q]));
-        const items = ids
-          .map(id => byId.get(id))
-          .filter(Boolean);
+function syncState() {
+  state.mode = quizMode;
+  state.wrongIds = [...wrongSet];
+  saveState(state);
+}
 
-        if (items.length === 0) {
-          el.wrongEmpty.style.display = "";
-          return;
-        }
-        el.wrongEmpty.style.display = "none";
+function addWrong(id) {
+  if (!id) return;
+  wrongSet.add(id);
+  syncState();
+  updateWrongPill();
+  renderWrongPanel();
+}
 
-        items.forEach(q => {
-          const li = document.createElement("li");
-          li.style.margin = "6px 0";
-          const topic = q.explanation && q.explanation.startsWith("Thema:")
-            ? q.explanation.replace("Thema:", "").trim()
-            : "";
-          li.textContent = topic ? `[${topic}] ${q.prompt}` : q.prompt;
-          el.wrongList.appendChild(li);
-        });
-      }
+function removeWrong(id) {
+  if (!id) return;
+  if (wrongSet.delete(id)) {
+    syncState();
+    updateWrongPill();
+    renderWrongPanel();
+  }
+}
 
-      function toggleWrongPanel(show) {
-        el.wrongPanel.style.display = show ? "" : "none";
-        if (show) renderWrongPanel();
-      }
+function updateWrongPill() {
+  el.wrongPill.textContent = `Fehler: ${wrongSet.size}`;
+}
 
-      // --- Quiz Engine (keine Wiederholungen bis Pool leer) ---
+function setMode(mode) {
+  quizMode = mode;
+  syncState();          // Modus speichern
+  resetPool();          // baut Pool je nach Modus neu
+  render();
+  el.status.textContent = (quizMode === "wrong")
+    ? "Fehler-Modus aktiv"
+    : "Normal-Modus aktiv";
+}
+
+function renderWrongPanel() {
+  if (!el.wrongPanel) return;
+  const ids = [...wrongSet];
+  el.wrongPanelTitle.textContent = `Fehlerliste (${ids.length})`;
+  el.wrongList.innerHTML = "";
+
+  // Map für schnellen Zugriff
+  const byId = new Map(QUESTIONS.map(q => [q.id, q]));
+  const items = ids
+    .map(id => byId.get(id))
+    .filter(Boolean);
+
+  if (items.length === 0) {
+    el.wrongEmpty.style.display = "";
+    return;
+  }
+  el.wrongEmpty.style.display = "none";
+
+  items.forEach(q => {
+    const li = document.createElement("li");
+    li.style.margin = "6px 0";
+    const topic = q.explanation && q.explanation.startsWith("Thema:")
+      ? q.explanation.replace("Thema:", "").trim()
+      : "";
+    li.textContent = topic ? `[${topic}] ${q.prompt}` : q.prompt;
+    el.wrongList.appendChild(li);
+  });
+}
+
+function toggleWrongPanel(show) {
+  el.wrongPanel.style.display = show ? "" : "none";
+  if (show) renderWrongPanel();
+}
+
+// --- Quiz Engine (keine Wiederholungen bis Pool leer) ---
 
       let pool = [];
       let index = 0;
@@ -544,7 +589,8 @@
       el.next.addEventListener("click", nextQuestion);
       el.restart.addEventListener("click", () => {
         resetPool();
-        render();
+          el.wrongModeBtn.textContent = (quizMode === "wrong") ? "Normal-Modus" : "Fehler-Modus";
+          render();
       });
 
       // --- Fehler-Modus / Liste ---
@@ -582,7 +628,7 @@
 
       el.clearWrongBtn.addEventListener("click", () => {
         wrongSet = new Set();
-        saveWrongSet();
+        syncState();
         updateWrongPill();
         renderWrongPanel();
         if (quizMode === "wrong") {
@@ -596,7 +642,6 @@
         el.status.textContent = "Lade Fragen...";
         try {
           await loadQuestions();
-          wrongSet = loadWrongSet();
           updateWrongPill();
           renderWrongPanel();
           resetPool();

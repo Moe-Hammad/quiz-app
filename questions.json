@@ -314,7 +314,7 @@
       "Die Story ist so geschrieben, dass Hersteller und User noch darüber verhandeln können.",
       "Die Story repräsentiert den Kern der Anforderung und enthält keine unnötigen oder verfrühten Lösungsdetails."
     ],
-    "correctIndex": 0
+    "correctIndex": 2
   },
   {
     "id": "su3_q2",
@@ -339,9 +339,9 @@
   {
     "id": "su3_q4",
     "topic": "SU3 User Stories/CCC/INVEST",
-    "question": "Welches INVEST-Qualitätskriterium ist bei der folgenden User Story am schwersten verletzt? (DBS-Therapeutin: für jeden Kontakt anzeigen, um wie viel Zeit der Strom-Puls durch Interleaving verschoben wird …)",
+    "question": "Welches INVEST-Qualitätskriterium ist bei der folgenden User Story am schwersten verletzt? (Als DBS-Therapeut:in möchte ich, dass für jeden Kontakt angezeigt wird, um wie viel Zeit der Strom-Puls durch Interleaving verschoben wird, da ich diese wichtige Information benötige.",
     "options": ["E", "S", "N", "V"],
-    "correctIndex": 0
+    "correctIndex": 3
   },
   {
     "id": "su3_q5",
@@ -358,7 +358,12 @@
     "id": "su3_q6",
     "topic": "SU3 User Stories/CCC/INVEST",
     "question": "Welcher der folgenden Punkte gehört nicht auf die Vorderseite einer Story Card?",
-    "options": ["offene Punkte", "Aufwandsabschätzung", "Story Narrative", "Akzeptanzkriterien"],
+    "options": [
+      "offene Punkte",
+      "Aufwandsabschätzung",
+      "Story Narrative",
+      "Akzeptanzkriterien"
+    ],
     "correctIndex": 3
   },
   {
@@ -421,7 +426,7 @@
       "Weder Use Case Diagramme noch Sequenzdiagramme können zeitliche Abläufe darstellen.",
       "Sequenzdiagramme können keine zeitlichen Abläufe darstellen, Use Case Diagramme können es.",
       "Sowohl Use Case Diagramme als auch Sequenzdiagramme können zeitliche Abläufe darstellen.",
-      "Use Case Diagramme können keine zeitlichen Abläufe darstellen, Sequenzdiagramme können es."
+      "Use Case Diagramme können keine zeitlichen Abfolgen darstellen, Sequenzdiagramme können es."
     ],
     "correctIndex": 3
   },
@@ -507,21 +512,30 @@
     "id": "su05_q1",
     "topic": "SU05 Qualitätsanforderungen/Systemanforderungen",
     "question": "Enthält die folgende Anforderung eine Qualitätsanforderung? \"Der Clinician Programmer muss dem Therapeuten ermöglichen, die Stimulation sehr einfach zu stoppen.\"",
-    "options": ["Nein, enthält keine Qualitätsanforderung", "Ja, enthält Qualitätsanforderung"],
+    "options": [
+      "Nein, enthält keine Qualitätsanforderung",
+      "Ja, enthält Qualitätsanforderung"
+    ],
     "correctIndex": 1
   },
   {
     "id": "su05_q2",
     "topic": "SU05 Qualitätsanforderungen/Systemanforderungen",
-    "question": "Enthält die folgende Anforderung eine Qualitätsanforderung? \"… das Ramping der Amplitude zu pausieren, ohne die Stimulation zu beenden.\"",
-    "options": ["Nein, enthält keine Qualitätsanforderung", "Ja, enthält Qualitätsanforderung"],
+    "question": "Enthält die folgende Anforderung eine Qualitätsanforderung? \"Der Clinician Programmer muss dem Therapeuten ermöglichen, das Ramping der Amplitue zu pausieren, ohne die Stimulation zu beenden.\"",
+    "options": [
+      "Nein, enthält keine Qualitätsanforderung",
+      "Ja, enthält Qualitätsanforderung"
+    ],
     "correctIndex": 0
   },
   {
     "id": "su05_q3",
     "topic": "SU05 Qualitätsanforderungen/Systemanforderungen",
-    "question": "Enthält die folgende Anforderung eine Qualitätsanforderung? \"… alle 10 Sekunden den Batteriestatus des IPG abfragen und die Anzeige aktualisieren.\"",
-    "options": ["Nein, enthält keine Qualitätsanforderung", "Ja, enthält Qualitätsanforderung"],
+    "question": "Enthält die folgende Anforderung eine Qualitätsanforderung? \"Der Clinician Programmer muss alle 10 Sekunden den Batteriestatus des IPG abfragen und die Anzeige aktualisieren.\"",
+    "options": [
+      "Nein, enthält keine Qualitätsanforderung",
+      "Ja, enthält Qualitätsanforderung"
+    ],
     "correctIndex": 0
   },
   {
@@ -539,14 +553,20 @@
     "id": "su05_q5",
     "topic": "SU05 Qualitätsanforderungen/Systemanforderungen",
     "question": "Enthält die folgende Anforderung eine Qualitätsanforderung? \"… die Stimulation in weniger als 1 Sekunde zu stoppen.\"",
-    "options": ["Ja, enthält Qualitätsanforderung", "Nein, enthält keine Qualitätsanforderung"],
+    "options": [
+      "Ja, enthält Qualitätsanforderung",
+      "Nein, enthält keine Qualitätsanforderung"
+    ],
     "correctIndex": 0
   },
   {
     "id": "su05_q6",
     "topic": "SU05 Qualitätsanforderungen/Systemanforderungen",
-    "question": "Enthält die folgende Anforderung eine Qualitätsanforderung? \"… anzeigen, welcher Lead mit welcher Gehirnhälfte des Patienten verbunden ist\"",
-    "options": ["Nein, enthält keine Qualitätsanforderung", "Ja, enthält Qualitätsanforderung"],
+    "question": "Enthält die folgende Anforderung eine Qualitätsanforderung? \"Der Clinician Programmer muss anzeigen, welcher Lead mit welcher Gehirnhälfte des Patienten verbunden ist",
+    "options": [
+      "Nein, enthält keine Qualitätsanforderung",
+      "Ja, enthält Qualitätsanforderung"
+    ],
     "correctIndex": 0
   },
   {
@@ -564,7 +584,12 @@
     "id": "su04_q1",
     "topic": "SU04 Scrum/Kanban",
     "question": "Welche Scrum-Rolle übernimmt das Abschätzen von Backlog-Einträgen beim Sprint Planning?",
-    "options": ["Entwicklungsteam", "Scrum Master", "Auftraggeber", "Product Owner"],
+    "options": [
+      "Entwicklungsteam",
+      "Scrum Master",
+      "Auftraggeber",
+      "Product Owner"
+    ],
     "correctIndex": 0
   },
   {
@@ -582,28 +607,49 @@
     "id": "su04_q3",
     "topic": "SU04 Scrum/Kanban",
     "question": "Welche Scrum-Rolle ist für die Pflege des Backlog verantwortlich?",
-    "options": ["Product Owner", "Stakeholder", "Scrum Master", "Entwicklungsteam und Product Owner"],
+    "options": [
+      "Product Owner",
+      "Stakeholder",
+      "Scrum Master",
+      "Entwicklungsteam und Product Owner"
+    ],
     "correctIndex": 0
   },
   {
     "id": "su04_q4",
     "topic": "SU04 Scrum/Kanban",
-    "question": "In welchem Scrum Meeting (ggf. auch im engen Sprint) wird üblicherweise bewertet, ob und wie man die Prozesse verbessern soll?",
-    "options": ["Sprint Planning I", "Daily Scrum", "Sprint Planning II", "Sprint Review", "Sprint Retrospective"],
+    "question": "In welchem Scrum-Meeting bespricht man, was in einem Sprint gut und nicht so gut gelaufen ist, und wie man die Prozesse verbessern sollte?",
+    "options": [
+      "Sprint Planning I",
+      "Daily Scrum",
+      "Sprint Planning II",
+      "Sprint Review",
+      "Sprint Retrospective"
+    ],
     "correctIndex": 4
   },
   {
     "id": "su04_q5",
     "topic": "SU04 Scrum/Kanban",
     "question": "Welche Scrum-Rolle darf bei der Schätzung von Backlog-Einträgen beim Sprint Planning mitentscheiden?",
-    "options": ["Scrum Master", "Product Owner", "Stakeholder", "Entwicklungsteam"],
+    "options": [
+      "Scrum Master",
+      "Product Owner",
+      "Stakeholder",
+      "Entwicklungsteam"
+    ],
     "correctIndex": 1
   },
   {
     "id": "su04_q6",
     "topic": "SU04 Scrum/Kanban",
     "question": "Welche Scrum-Rolle ist für das Erkennen von Abhängigkeiten (Impediments) nach dem Daily Scrum zuständig?",
-    "options": ["Product Owner", "Scrum Manager", "Entwicklungsteam", "Scrum Master"],
+    "options": [
+      "Product Owner",
+      "Scrum Manager",
+      "Entwicklungsteam",
+      "Scrum Master"
+    ],
     "correctIndex": 3
   },
   {
@@ -622,7 +668,12 @@
     "id": "su04_q8",
     "topic": "SU04 Scrum/Kanban",
     "question": "Welche Scrum Rolle ist für das Moderieren vom Scrum Meeting zuständig?",
-    "options": ["Product Owner", "Scrum Master", "Externer Moderator", "Entwicklungsteam"],
+    "options": [
+      "Product Owner",
+      "Scrum Master",
+      "Externer Moderator",
+      "Entwicklungsteam"
+    ],
     "correctIndex": 1
   },
   {
@@ -652,7 +703,13 @@
     "id": "su04_q11",
     "topic": "SU04 Scrum/Kanban",
     "question": "Aus welcher agilen Technik stammt ursprünglich die Idee, die Menge angefangener Arbeit zu begrenzen?",
-    "options": ["Kanban", "Extreme Programming", "Scrum Programming", "Lean", "V-Modell"],
+    "options": [
+      "Kanban",
+      "Extreme Programming",
+      "Scrum Programming",
+      "Lean",
+      "V-Modell"
+    ],
     "correctIndex": 0
   },
   {
@@ -816,7 +873,7 @@
     "topic": "SU06 Backlog/Release/Story Map/Kano",
     "question": "Welche der folgenden Aussagen beschreibt am zutreffendsten die Struktur einer Story Map?",
     "options": [
-      "Die X-Achse repräsentiert die verschiedenen Aktivitäten/Phasen beim Benutzen des Produkts, und die Y-Achse die zugehörigen Epics/Alternativen.",
+      "Die X-Achse repräsentiert die verschiedenen Aktivitäten/Phasen beim Benutzen des Produkts, und die Y-Achse die zugehörigen Fälle/Alternativen.",
       "Auf der X-Achse sind die Epics angeordnet, und auf der Y-Achse die zugehörigen Stories.",
       "Die X-Achse repräsentiert die Epics, und die Y-Achse die zugehörigen Schritte in zeitlicher Reihenfolge."
     ],
@@ -896,6 +953,69 @@
       "Das nächste Release ist ein zusammenhängender Abschnitt des Produktbacklogs, vom obersten Eintrag an betrachtet.",
       "Um ein Release zu planen, wird auf Basis der Roadmap ein Zeitrahmen vorgegeben und dann vom Umfang her passende Stories aus dem Produktbacklog dafür zusammengestellt.",
       "Um ein Release zu planen, werden inhaltlich zusammenhängende Stories aus dem Produktbacklog zu Paketen geschnürt."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "su3_qx1",
+    "topic": "SU3 User Stories/CCC/INVEST",
+    "question": "Welches INVEST-Qualitätskriterium ist bei der folgenden User Story am schwersten verletzt? Als Neurochirurg:in möchte ich die Impedanz eines Kontakts auch mehrfach mit jeweils nur einem Klick messen können, um anhand der Varianz die Qualität der Messung zu beurteilen. Dabei sollen die Messungen in einer vertikalen Tabelle nach Zeit sortiert dargestellt werden, und die jeweils größte Messung eines Kontakts soll rot hervorgehoben werden.",
+    "options": ["V", "N", "E", "S"],
+    "correctIndex": 1
+  },
+  {
+    "id": "su3_qx2",
+    "topic": "SU3 User Stories/CCC/INVEST",
+    "question": "Welche der folgenden Punkte gehört nicht auf die Vorderseite einer Story Card?",
+    "options": [
+      "offene Punkte",
+      "Story Narrative",
+      "Aufwandsabschätzung",
+      "Akzeptanzkriterien"
+    ],
+    "correctIndex": 3
+  },
+  {
+    "id": "su3_qx3",
+    "topic": "SU3 User Stories/CCC/INVEST",
+    "question": "Welches INVEST-Qualitätskriterium ist bei der folgenden User Story am schwersten verletzt? Als DBS-Therapeut:in möchte ich, dass während der Programmierung für jeden Kontakt auch dessen Impedanzwert angezeigt wird.",
+    "options": ["I", "N", "V", "E", "S", "T"],
+    "correctIndex": 2
+  },
+  {
+    "id": "su4_qx4",
+    "topic": "SU4 Agil, XP, Kanban, Scrum",
+    "question": "Wie sieht idealerweise die Sichtbarkeit (Visibility) des Projektfortschritts in einem agilen Projekt im Zeitverlauf aus?",
+    "options": [
+      "Die Sichtbarkeit ist während der gesamten Projektdauer hoch und schwankt mit dem Rhythmus der Iterationen.",
+      "Die Sichtbarkeit fängt niedrig an, steigt nach kurzer Zeit sehr schnell und bleibt dann auf einem hohen Niveau.",
+      "Die Sichtbarkeit startet auf einem hohen Niveau und nimmt dann mit der Zeit langsam ab.",
+      "Die Sichtbarkeit wächst beständig immer weiter bis zum Projektende."
+    ],
+    "correctIndex": 0
+  },
+  {
+    "id": "su4_qx1",
+    "topic": "SU4 Agil, XP, Kanban, Scrum",
+    "question": "Was soll im Product Backlog stehen?",
+    "options": [
+      "Technical Stories",
+      "User Stories mit Akzeptanzkriterien",
+      "System- und Komponentenanforderungen.",
+      "alles, was am Produkt entwickelt / verändert werden soll.",
+      "Bugs und Change Requests"
+    ],
+    "correctIndex": 2
+  },
+  {
+    "id": "su7_qx1",
+    "topic": "SU07 Slicing/Splitting",
+    "question": "Welche der folgenden Vorgehen wird nach Lawrence am ehesten empfohlen, um Abläufe in mehrere Arbeitseinheiten splitten?",
+    "options": [
+      "Anfang und Ende zusammen zuerset umsetzen.",
+      "Die vorderen N Schritte umsetzen, so dass der Umfang noch in den Sprint passt.",
+      "Die hinteren N Schritte umsetzen, so dass der Umfang noch in den Sprint passt.",
+      "Jeden Schritt einzeln umsetzen."
     ],
     "correctIndex": 0
   }
